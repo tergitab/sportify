@@ -1,12 +1,3 @@
-:root {
-    --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
-    --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
-    --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
-    --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
-    --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
-    --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
-}
-
 body,
 #___gatsby,
 #gatsby-focus-wrapper {
@@ -25,7 +16,6 @@ body,
     border: 1px solid transparent;
     padding: 0 20px;
     box-sizing: border-box;
-    font-family: var(--fa-font-regular);
 }
 
 .navbar-brand {
@@ -122,9 +112,7 @@ video#background-video {
     z-index: 1;
     text-align: center;
     color: white;
-    /* Ensure text is visible on video background */
     margin-top: 73px;
-    /* Adjust based on your navbar height */
 }
 
 .hero-title {
@@ -171,20 +159,16 @@ video#background-video {
     justify-content: center;
     margin: 10px auto;
     max-width: 500px;
-    /* Ensuring a max-width for better alignment */
 }
 
-.register-form h2,
 .find-coach h2 {
     margin-bottom: 15px;
     text-align: center;
 }
 
-.register-form div,
 .find-coach div {
     margin-bottom: 10px;
     width: 100%;
-    /* Ensure full width for inputs */
 }
 
 .register-form label,
@@ -194,7 +178,6 @@ video#background-video {
     margin-bottom: 5px;
 }
 
-.register-form input,
 .find-coach input {
     width: 100%;
     padding: 8px;
@@ -202,7 +185,6 @@ video#background-video {
     border-radius: 5px;
     font-size: 1em;
     box-sizing: border-box;
-    /* Ensure padding doesn't affect width */
 }
 
 .arlo-event-listitem {
@@ -251,7 +233,6 @@ video#background-video {
 .arlo-city {
     margin-bottom: 5px;
     color: black;
-    /* Set text color to black */
 }
 
 .arlo-action {
