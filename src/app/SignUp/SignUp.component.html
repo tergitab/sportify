@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krijoni një llogari</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body style="background: url('assets/images/sports-background.jpg') center center/cover no-repeat; height: 100vh;">
+    <div class="container">
+        <div class="row">
+            <div class="container d-flex justify-content-center align-items-center h-100">
+                <div class="row w-100">
+                    <div class="col-lg-6 offset-lg-3">
+                        <div class="form-2-wrapper">
+                            <h2 class="text-center mb-4">Krijoni një llogari</h2>
+                            <form (ngSubmit)="onSubmit(signupForm)" #signupForm="ngForm">
+                                <div class="mb-3 form-box">
+                                    <input type="text" class="form-control" id="username" name="username"
+                                        placeholder="Username" required ngModel>
+                                </div>
+                                <div class="mb-3 form-box">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                                        required ngModel>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" id="password" name="password"
+                                        placeholder="Fjalëkalimi" required ngModel>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="userType" class="form-label" style="margin-left: 8px;">Zgjidhni llojin e
+                                        përdoruesit</label>
+                                    <select class="form-control" id="userType" name="userType" required
+                                        [(ngModel)]="selectedUserType" #userType="ngModel">
+                                        <option value="INDIVIDUAL">Perdorues</option>
+                                        <option value="MANAGMENT">Biznes</option>
+                                        <option value="TRAINER">Trajner</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit"
+                                    class="btn btn-outline-secondary login-btn w-100 mb-3">Regjistrohuni</button>
+                            </form>
+                            <p class="text-center register-test mt-3" style="font-weight: 500;">Ju keni një llogari? <a
+                                    [routerLink]="['/login']" class="text-decoration-none"
+                                    style="font-weight: 500;">Hyni këtu</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

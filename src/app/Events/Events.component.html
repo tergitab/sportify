@@ -1,0 +1,100 @@
+<div class="events-section">
+    <p class="events-subtitle">Eventet</p>
+    <p class="events-title">Kalendari i Eventeve</p>
+    <p class="events-description">Këtu gjeni eventet e regjistruara në platformën tonë. Kalendari i eventeve i
+        organizuar nga komuniteti ynë përfshinë të gjitha sportet e preferuara nga ju.</p>
+    <div class="calendar-row">
+        <div class="calendar-container">
+            <div id="calendar" class="calendar"></div>
+        </div>
+        <div class="arlo">
+            <div class="filters-container">
+                <div id="filters">
+                    <label for="month-filter">Muaji:</label>
+                    <select id="month-filter">
+                        <option value="">--opsione--</option>
+                        <option value="01">Janar</option>
+                        <option value="02">Shkurt</option>
+                        <option value="03">Mars</option>
+                        <option value="04">Prill</option>
+                        <option value="05">Maj</option>
+                        <option value="06">Qershor</option>
+                        <option value="07">Korrik</option>
+                        <option value="08">Gusht</option>
+                        <option value="09">Shtator</option>
+                        <option value="10">Tetor</option>
+                        <option value="11">Nëntor</option>
+                        <option value="12">Dhjetor</option>
+                    </select>
+
+                    <label for="sport-filter">Lloji Sportit:</label>
+                    <select id="sport-filter">
+                        <option value="">--opsione--</option>
+                        <option value="Futboll">Futboll</option>
+                        <option value="Basketboll">Basketboll</option>
+                        <option value="Tenis">Tenis</option>
+                    </select>
+
+                    <button id="filter-button">Filtro</button>
+                    <button id="show-add-event-form" class="btn btn-primary">Shto Event</button>
+                    <button id="my-events-button" class="btn btn-primary">Eventet e mia</button>
+                </div>
+            </div>
+
+            <div class="add-event-container hidden">
+                <h2>Shto Event</h2>
+                <form id="add-event-form">
+                    <button type="button" id="close-add-event-form" class="close-button">X</button>
+
+                    <label for="event-name">Emri eventit:</label>
+                    <input type="text" id="event-name" required />
+
+                    <label for="event-date">Data:</label>
+                    <input type="date" id="event-date" required />
+
+                    <label for="event-start-time">Ora e fillimit:</label>
+                    <input type="time" id="event-start-time" required />
+
+                    <label for="event-end-time">Ora e përfundimit:</label>
+                    <input type="time" id="event-end-time" required />
+
+                    <label for="event-location">Adresa:</label>
+                    <input type="text" id="event-location" required />
+
+                    <label for="event-sport">Lloji Sportit:</label>
+                    <select id="event-sport" required>
+                        <option value="">--opsione-- </option>
+                        <option value="Futboll">Futboll</option>
+                        <option value="Basketboll">Basketboll</option>
+                        <option value="Tenis">Tenis</option>
+                    </select>
+
+                    <label for="event-summary">Lajmërim:</label>
+                    <textarea id="event-summary" required></textarea>
+                    <br />
+
+                    <button type="submit" class="btn">Shto Eventin</button>
+                </form>
+            </div>
+
+            <div id="upcoming-events">
+                <div *ngFor="let event of events" class="arlo-event-listitem">
+                    <div class="arlo-date arlo-font-special">
+                        <div class="arlo-start-day">{{ event.date | date: 'd' }}</div>
+                        <div class="arlo-start-month-year">{{ event.date | date: 'MMM yyyy' }}</div>
+                    </div>
+                    <div class="arlo-event-content">
+                        <div class="arlo-title">{{ event.name }}</div>
+                        <div class="arlo-summary">{{ event.summary }}</div>
+                        <div class="arlo-location"><strong>Adresa:</strong> {{ event.location }}</div>
+                        <div class="arlo-sport"><strong>Lloji Sportit:</strong> {{ event.sport }}</div>
+                        <div class="arlo-time"><strong>Ora:</strong> {{ event.startTime }} - {{ event.endTime }}</div>
+                    </div>
+                    <div class="arlo-action">
+                        <button class="btn btn-primary">Apliko</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

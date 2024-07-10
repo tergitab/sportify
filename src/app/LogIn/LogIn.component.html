@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Login</title>
+</head>
+
+<body style="background: url('assets/images/sports-background.jpg') center center/cover no-repeat; height: 100vh;">
+    <div class="container">
+        <div class="row">
+            <div class="container d-flex justify-content-center align-items-center h-100">
+                <div class="row w-100">
+                    <div class="col-lg-6 offset-lg-3">
+                        <div class="form-2-wrapper">
+                            <h2 class="text-center mb-4">Hyni në llogarinë tuaj</h2>
+                            <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+                                <div class="mb-3 form-box">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                                        required ngModel>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" id="password" name="password"
+                                        placeholder="Fjalëkalimi" required ngModel>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-center">
+                                        <a href="#" class="text-decoration-none">Kam harruar fjalëkalimin</a>
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                    class="btn btn-outline-secondary login-btn w-100 mb-3">Hyni</button>
+
+                            </form>
+                            <p class="text-center register-test mt-3" style="font-weight: 500;">Nuk keni një llogari? <a
+                                    [routerLink]="['/signup']" style="font-weight: 500;"
+                                    class="text-decoration-none">Regjistrohuni këtu</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

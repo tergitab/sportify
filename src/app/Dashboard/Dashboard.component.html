@@ -1,0 +1,365 @@
+<nav class="navbar is-fixed-top">
+    <div class="navbar-brand">
+        <a href="#">
+            <img src="assets/images/sportifyLogo.png" alt="logo" class="logo1" />
+        </a>
+        <a role="button" class="navbar-burger burger" data-target="navMenu" aria-label="menu" aria-expanded="false"
+            tabindex="0">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a href="#home" class="nav-link">Kreu</a>
+            <a href="#blog" class="nav-link">Blog</a>
+            <a href="#events" class="nav-link">Eventet</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+        </div>
+        <div class="navbar-end">
+            <a href="#" class="nav-social">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAIISURBVHgB3VRLctNAEH0tkSoKqsA3QEfAJ0C5gamCGFZxDHvCCUY6QSp7wMoKAgtyg/gIzg10BMGCjcvz6JEll5zIY9nZ5VXJnpmW+vXnTQMPBbLJMBmZ3pMQsRA9eEBBEejz9ks67UzyfWSiMJAzXQ6wG/JAJHnz1Vx4SSqCa11G2BME0+G3NGmeBc1NGJYZRLgHBGI02LiV5NdHNXDnEpWwlMHC8rDehyKmlQRWXnk9EYX+ZuVDTJsmEY5CaQQoiJ1w6u0jdInUyum7zJw3z8r+ifxWhy/FiUTWNfQsPHiuf0UnkprAlZOUT+qqZ4mZtTw/IA/nUKEokc+Hl4RE7gguP5gBrUbtzlBKMlYVDgrL/mPys2Z07fMTeI1S9gAB1xtZIXoaBsfvs3QqVVn2IhGRHMvoW8shZN3cHPuSWFQjRXvQaucyCGy5W14S9VLKkmR62+T6NZyYi1IQ8M83P4nq/cfYnA6z9EoJ+3py5e4ILZJ/ZN/dBRXEBFuwVcIB5OxybHpHy3n0uj6v5pxTXLTNx4pEm1xoWdCekJif4+RYFzNNvdC3In019vjF38X8zx2S+cLeaGS+7yItVWTRAVrSkyxdyXrVE6f32zNpXxCSNfdrjV+QJ041uA+BisKpbiOJZpNbliM7w67QKe3m3DBL7sh9YxOWUzZ4wQ7qEdqboyyd4cHjP4zczqw9+RXCAAAAAElFTkSuQmCC"
+                    alt="logo" />
+            </a>
+            <a href="#" class="nav-social">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAATCAYAAACUef2IAAABb2lDQ1BpY2MAACiRdZG9S8NQFMVPW6ViKx10EOmQoYpDC0VBHKWCXapDW8GqS/KatEKShpeUUlwFF4eCg+ji1+B/oKvgqiAIiiDi5u7XIiXe1xRapH3h5v44753Lywngz+jMsAeSgGE6PJtOSWuFdSn4jhCCVFGEZWZby7mlPPqun0f4RH9IiFn9z/VcoaJqM8A3RDzHLO4QLxBnao4leI94jJXlIvEJcZzTBYlvha54/Ca45PGXYJ7PLgJ+MVMqdbHSxazMDeJp4pihV1n7PuJLwqq5mqM+QRWFjSzSSEGCgiq2oMNBgrpJmfX2JVu+FVTIw+htoQ5OjhLK5I2TWqWpKnWNdJUeHXWR+/88bW12xpseTgGDr677OQkE94Fmw3V/T123eQYEXoBrs+OvUE7z36Q3OlrsGIjsAJc3HU05AK52gfFnS+ZySwpQ+TUN+LgARgrA6D0wvOFl1d7H+ROQ36ZfdAccHgFTdD6y+QfAwmftwl7s8QAAAAlwSFlzAAALEgAACxIB0t1+/AAAA5JJREFUOE91lGlIVFEUx999782SG6VEG7QRREZkViYFTvShyLAdMmPMoE/tUSRFYzVmGy0URgvRaIuJoPilPmXUFFTYZlC0fJAWorLdStM37/a704xMjl44797/vef+z7n/d+4VGu3MsuIyh2HMUOPYZgqjTghxtKDC39F9TeGqIp9TatqmkB2aS2/9sazyO29f1JwN1ktdOSQ53fV9TGcqlo2Nc5vOQfRjCFZsCJFb6d0muhNDahhCL3Loxhb8s7BXKS53gyJVvmHikG3fl5osY/gN+yKlvV5KuZ6xJONdLtORHktcWbhNQDqHtRLm+8LUgL8vP+D/FPULEy+rLLVtKWtwCAAHCKEvsDV5BXwSPBoCX/WKHanKt3zJRs1lOKYwtw84BGuCtPjz79bm2OBGFNQ+umEtzvA0sSGTc+cKobUQ7KwuRDp4jia0nwvHe+4mOt2jmDvOvgnYG0jXdIas2yurDvynVpx2ZJbFxgtKejYtJ+sWcBU4DbyFwPMZ52HfwWtD0q4pqCi1uv+DsBSxDb3vofce5hIgKaX/BcFuegf4MH0u1kHAMqy2J1LF1yVFlLyuKSgXZXieQZLGceZqQvBz5Gl6N9iDnwnhcYIdzA/sauueWBTHZawWlgb87VSGEi0I2RKCFNjSPgq+hsErP6J/e2+kaj5O41hn9M6O6J1AhoUwtoLP45MI9n5ua722qlqpE996zDjqxuYnkD0HDyJrpfNXZNmriBVO7ZM8sres4zSOOl4qKnHour6BI3mZc2KD0TkJCU5BmsJ8Hjh5UUbOdUo17sr3SHxxuU83DN0rNLETwhSyvkzfAtlM6vs9JwlE6n02+MPC8TkPah8Fw1c52uKIK7xbuVkmBOKQkgC7BdFq+pvMzSTYdMY3YLkKngXOwRonjRj7+uqzxi7iOI15TDLZsB+PYdhTSDe3WR0vuQiNkfpW+qr6/ghWfv3A/uF9+w/tNWOqYETkuk7B6R2k6yzbDhaeK5N1HDVS3/0j9Z2C3icgTY1gF3oH0btTBeiS4tKKkjRd6Edwms38T/WwsLG+oLI0FM0k8p48hmziv/dE/GLtIeNsbCr2ekFGzmOVRFgKKiABUh8L84AWRzzA61a9tMIfjh7buG3vCOhTJ8JfPdTHGA/Ekgi03RT6ZOVvqk/L7x+TEh2uwSw0mLp+z2mY5dy+Xq8ret/ttOUOXrV8tv/3n9qtTs+09Kzmv2Nxdgpec2lxAAAAAElFTkSuQmCC"
+                    alt="logo" />
+            </a>
+            <a href="#" class="nav-social">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAASCAYAAAC5DOVpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEdSURBVHgB5VTBTcQwEJzNhf+V4BKuhFAB4nPAz8qLJ1TgpAMqIP4hwgPRQaiAUAGhg0j8iM/LOuGk00kcMtzv5uGRd9fj9a7WBMFDbq5AdII/wjPas9vimmptFkjoBf9EQqQTSjHHnpBGRTN6JlgwtcSSBLEGYREtxozOMx9fVGW3ttV5EYTixYjQrIUeL41yDopXUJIZosWkwE3gO23U8Elv0w1bMYhEmko2P/nwG5iyQB/ev44HHNqBJhsR33BMzZaVed7cn9qyFxpt0oB5VGZ1bnTglZcG2LILNZslyL7dKkpMHlOF9WhGWqgLNWM/2bYR3YBdOBQxduixBziPPl3asr3XRSGzl+0KHrx/DzxeLnO66ZNPoDm35ukLMsNhUgeXdjkAAAAASUVORK5CYII="
+                    alt="logo" />
+            </a>
+            <a href="#" class="nav-social">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEiSURBVHgB7ZTLUcMwEIb/lVxASnAHpATTQZiBzHDC5nEGKpBdAQ0AUU4MgUsqwCW4BJWQSzhhLZInJiIHiM2BHPLNSLOzL61WOwJWTFI1wB8hvz1nShPRmRNNbfnwVBcGPRAvlypZJfLEQtA1eiL4A4tvGqYKPRFjXVSwdANGxRb5O9s5dgGaXamhsGGfqDx+UFMvvV7kk1Zbg+e2RuV76l5t1HgSDIF06x8RY2AZ6ToZ+60xhnoXBClw58T4y5MRMziZnefJ+DHPImxP+pPtKVVTgS4wSmIauVnMXFUmNEkpDrpUtlgyH2U6b0bJVWIk0dv6IB5uX5kbnUwX4UyaTZdu1/yFfbL/TnZyX5SSorhdS8u3rTHUSxGlYaD/QDfjPgHenmqf/qrMVQAAAABJRU5ErkJggg=="
+                    alt="logo" />
+            </a>
+            <a [routerLink]="['/login']" class="button-identifikohu">IDENTIFIKOHU</a>
+        </div>
+    </div>
+    <div class="navbar-menu is-hidden-desktop" id="navMenu">
+        <div class="navbar-end has-text-black">
+            <a href="#home" class="nav-link">Kreu</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+            <a href="#blog" class="nav-link">Blog</a>
+            <a href="#events" class="nav-link">Eventet</a>
+        </div>
+    </div>
+</nav>
+
+<div class="hero-section"
+    style="background-image: linear-gradient(180deg, rgba(216,94,75, 0.5), rgba(161,84,119, 0.5)), url('assets/images/parku-olimpik.jpeg');"
+    id="home">
+    <h1 class="hero-title">Sportify</h1>
+    <p class="hero-subtitle">
+        Platforma dixhitale e sporteve<br />
+        në Shqipëri
+    </p>
+    <p class="hero-text">Rezervo, Luaj, Shijo</p>
+</div>
+
+<div class="background-section">
+    <div class="background-image" style="background-image: url('assets/images/sportify-bck.jpg');"></div>
+    <a [routerLink]="['/administration']" class="subscribe-button">REZERVIME</a>
+</div>
+
+<div class="stats-section"
+    style=" background-image: linear-gradient(180deg, rgba(216, 94, 75, 0.8), rgba(161, 84, 119, 0.8)), url('assets/images/stats-ae7027c010d6be67cac968e31423f200.png');">
+    <div class="stat-item">
+        <p class="stat-value">1500</p>
+        <p class="stat-description">Përdoruesit</p>
+    </div>
+    <div class="stat-item">
+        <p class="stat-value">18</p>
+        <p class="stat-description">Terrene Sportive</p>
+    </div>
+    <div class="stat-item">
+        <p class="stat-value">26</p>
+        <p class="stat-description">Evente të organizuara</p>
+    </div>
+    <div class="stat-item">
+        <p class="stat-value">45</p>
+        <p class="stat-description">Ndeshje të krijuara</p>
+    </div>
+</div>
+<div class="background-circle"></div>
+
+<div class="app-section">
+    <div class="app-image">
+        <img src="assets/images/app.png" alt="logo" />
+    </div>
+    <div class="app-description">
+        <p class="app-title">Aplikacioni</p>
+        <p class="app-text">"SPORTIFY" është një platformë të re që do të shërbej si një portal i unifikuar për të
+            gjitha nevojat tuaja sportive.</p>
+        <div class="feature-row">
+            <div class="feature-icon" style="background:#AE629B">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAO8SURBVHgB7VhdbttGEJ7ZlfzMnqB6LBoZkW8g30A+QeW3orUd6QA1RfcAoSG76JuoE9g9gZ0TlIjtNm9hTlAGaICi0u70m43YwEXkbooATgF/gMAVd1b7cX6+HYrT7l7fspmRSIfuCZ4pn1xNx3y0efBSPNXGUk73AHHSJ6ahMA9a6hFmmXz3/GRO94P5UXd/aLxLDH1CeCCzDg9k1uGTItOKMUp7o6S19BfClNCHwsvx4c00SsOiyACJkPSgSef41BQLNkOweRxrHksmACqZp9cnz2LtVczoA/CQwOvwQGYd/j868313/wyXhJYepQ2I5LgXXdq6RozpY82FfvfGF+nz0/l/IiNClRD30e/0oDOXFPSG+u8MfHFrAZtBIL9ay+QLFtsXRgMFW7/g13ftd2eYoJxjNnKsY99q7TBziWFNnnbDPWPqw5vTXf24drBLtIWEHs0Zau3aLsP6UkRKtcl+PTm/az+GMP2Gtu+cReZr6D4Wzzlscvh9hE8BT82x4ROMB/BcZtiXQuYp3JEwyQ5sExE+gxcvDXHi0dcapvH7GaxsPQ940t1LsWBC9wiQKf0bs836Jf1i1DFt9/k6Yxa6DFfDQy9S3ZojLrSPFvFD69/aNXDWFKw5JgidofeGyDv3Ovvlh/Ltb0VA3yDChoQnaJntrMxDRaWbewMLF4en+8fc0aP9EX79aZhj6qdX038906J0Bp6piRnVIT27cGEDtBUdSzzTHHIk2zrHzqUNSSWiBJunj9onxuhoc3+Giuh4VIkVmmFVgaV98UL+jd3Kqrz+2xMc3r+GpKFl+gnX2eH1NGqfWAWuWbiTXU0LTzLBBkOtHO8W20pEDUIDtao4VEblfre7sNE8jBbJyDAhaZk6YUzms9XtxLQ2ho2Nhg2zg2DDeFVO/kgw0KaspEjENVdMr1Tbs80DKKp8hQ1GomSIJtmjb1/6dvuZdWhLNWzitiy3zsxy42wVm4oiEeUZY30VOIGIKiy6vePJ9UmmYWE2hXXu50BEw4YydU41Q6sPrSp/ZDJ/0kbVjMUujpuxszYjzQmBirIU2Ysfg132Iq9wHFyuHqCiSESRWWlHSETj2hdp7+tOGOONgcLhyaWqePrlN71g3z2Y4KAM+eO9qSgS8f0Mc61nDSNOSijkD8Kgyqtip4SssRcgkuO+6k1QXE/LV7FbRJPhUBVCIR9AqEnk9OZ0rp7zS7MDqa1h90QJBo1RbLwL8Ucjs1zYsfd+rPmghJx3W5rIzfyt+yCIfDrXP4Ca4yEGfwGSrfEvj+/gZgAAAABJRU5ErkJggg=="
+                    style="width:35px;height:35px" alt="googleplay" />
+            </div>
+            <div class="feature-description">
+                <p class="feature-title">Fushat</p>
+                <p class="feature-text">Gjeni lojtarë dhe fusha përmes gjeolokacionit.</p>
+            </div>
+            <div class="feature-icon" style="background:#FFA02C">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOuSURBVHgB7VhbctNAEOxVqPziG8S5QZwEqvjCOQHhBHFOEBkOYOcAYHOCOCdIOEGcL6ogL04QcwLEbx4S3Ws5yEKy9Qrkw13lWmktzbZmZ3pGAhZYYIF/CoOcOHfR4rCCChAYjDZ7OMxzTy7Cly7qvsF1EOCKd3ooCS7evA/QeNmnvYx4hhzwuQAHb7OPBkqCD1/TwzsGr3mamXCih7XtxqATnw+AmrxLwluoABdtnNDmGkl4CcTcRg+f4/NpHl4ROTLsTxkxNn4ze2MewtBa4ziY+sPA9bV+AmaFhLfRx3504rwNV4mCiiBb2uL4OvR8K0i5x0E+6KlLJ9sEJsAvpHgyDXkJ/3ekEf7BX12ZHJ3k9o3olTqqg/R8FJ3QmgyHuoPk0HNSJoca75jBsb88GUNVcGzCjaJT92PpVLh8T74lAY2+TYbhEqaljcaHVIomKoJ2y8RUh7q8R3UakIOXmbDACrTPLG6etbETmdZT/xUqRaCqKQ0mweFkTvrPueYNplUjE+EXfXoTOOSv/9UdhwYvPubgUSP3UBK+Y2149Oapzu0aBj2ed1/106Vzpkpwy1wl2pLBCZ/etdskkaewl/GyvEvb27R1LJuyrTVo9ziuybkIy9h6j33DmGSPheMaYx2ulfEye4hWmLyeyrNs87y78RG78+7N3K3ZTk1JaOiZUOzzdlqCtp7evAxP7Y4xZj/NCoNChOOLPht7pX4TYCvrYjbRuPX8XVFt3PUPVu9zoRDhcPEaF75Uzdd2zmvEz1xsk+RBWHy20mRrHgoTFmxPC2a2ujiDge/jUOoSveabiyZDoCO5UlI5PnaLki1NeIJJ/2wTKUCbmW7bUiZpl0NHBYd622UCn+IpgcSlJD91LO/zOOBcBxWi6m5NlXCiz3Y0ZjpEyuIx2ksbn41QOfwqmyVUSPgLJYvW3tjXnhCMaclXc1Laq0Cut+YkhIXgBON3QO8Wf96o/QC7XOCI/7cYzyMWmrd5C00cpT3MAnIkuVLVcwKsRouIyFFzG/r+IP2lUhygJArLmi0EDltPNjEkNQwwu9oxNOpWi/kmrkqX94vPgx0UQERfC30BMmPiD3r9qJjoKxv7wt3a+Tt0JnqdF0WS7qEPVtmdd/Gd+mneQ6/WdKwYZwk/VeW7eI+VvA1QYZXQm4jJEFDLbNLD+F1bHsf5KkqgMGHKy3bgzJcoc8+PJWrplvDcHpdE5qRjzA548Q4eAzkSMLOH9cEuLBCV4xbJ3yAWWGCBJ4DftxJbJ6xmR5cAAAAASUVORK5CYII="
+                    style="width:40px;height:40px" alt="googleplay" />
+            </div>
+            <div class="feature-description">
+                <p class="feature-title">Eventet</p>
+                <p class="feature-text">Krijoni dhe/ose shtoni eventin tuaj për të bashkuar komunitetin e sportify.
+                </p>
+            </div>
+        </div>
+        <div class="feature-row">
+            <div class="feature-icon" style="background:#F8997C">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAASSSURBVHgB7VhtThtHGH5mMSCVVvIN4v5rgAh6ghipkKD+qH2CmhPEOQHkBDgnwDkB8KOigbQ4J4irFhqpP+rcwFGUSLHxTp53dhYWs7M766Dkjx/J2vXM7DvPvPN+zQBTTDHFrUDhM7G/ivLCADWtsKI0ypRYMR0afbb1EOJlOI/uZpfvX4Poi3skF+KRBqqen3QCoP3TGZ5hAhQmerKMqtbY42vFNvVI+GAmQDfU+IsS96lNQZ3C77CtyraaUlfjRyNsbb5GBwVQiOjxMlok8cj+7WCEnY3XeHltzBL+F6Ib5/g+2f7nPdy/GKHBGRvyf6TxZPMcO/CEF1Gxw2+H2JdtpjZ7KkRjnGAe0RhHi2jQBLZFw5R18GEOW/Uu+shBAA8sXGAvtkUKb7lI+oBabAcB2vJOsrUFKsDnu1yiz5e5PRo1vppVc5LWb4tYxYQ4WjWa3LF/u/xVny9hN++7TKLiOAw527LddIAfQ+CxtM/SYcQcMAFmhjiVZxiiSZl1Y0pA8+iH7OiRSdR6t1jyDr209/DMONMBWyrfDC6dyhtmdyRaaLQf/ounIpM7tGUWMGPnKkr0eNF4pxH6IBH7RqHRap/21SyqVe7Or1bGk7ht/R90FEyoqpws4hcUJUoiRigzSzvZLlqwWi0vfLRjPJBcuJFxbbKIODNZE0WIGoO3oSjNw1VgNRwYJ/OCa+EC0SofPf6qrl1KJTo7sl6tjObgECxRwNv7dTS27wpt3H4z13fD9O1PJcqUeN906ow0p0xf+Y+7uIMcHEfhTDTVdY3Rkn6JkWPx6URtXh4M8QYunjqys1Dla5WmYrZTZxCF7TMVWJqMtMaTJZzaTNSDa3KFMrVQ5rPPZzIFVuyz5zF2HPJtZ+MMa+MdXik0DVpff97WWBdKqYKtNoYD1H/+L327qPVdjmvSqGpJB0krSqR2ZSaSokZi8uM0ecaOFV65NJ6qUWXz+vwcVuCGsc3hCG+Rg+HQLlZfmsVNIjO2T6WbW7oz5XhgNGcUblwaT8IGeMlmVae8nEiTHkfnopimdHpAl2IFOeFmHCoaW3YVH1y4mesijJTkRXSNhazJvwxTaYK1zdlic/CEtsmDxceNtGsXXuGvcyO9ZhG1PS0reDvZLOmVj4ak1wcFDmqzJTNWbL9mZVwtwmPhTqLrf+NQR0G9mtQq68mYeBsFYHZJmcWXg8FVoWyLldyFl7KES61IAadSK1ILa2po7CgSen5VqvmiVMLTwQANOYL8fhdNPU9zsAuXc1gml6xOWyuKFirU5D4HG00wJq5hAljbr5uJA+yWLvBKZMvRJO8clpuZ1hmgbWFrQpUIdRm8D5gIuvGRRtKq1LY+u+OVQkuz1IK2IYvn8hdL/gXzOMTDOenl3cD7D9FRJA+FLiA4yXbiBNnm4ezZ+I2H61xvQpAcFONjN03KlU4/m2g8IW10L3lFo6Xo5WWYkvSXuNLhb9VcnkXB3IzPu8C4NaIx5MajxONFkUsyZrrW+jkOMQEmJhqDMbZSCrAil2GiZak9pV00J5WQXJ69e4/Dei//2maKKab4AvgE33vjV4ge2lUAAAAASUVORK5CYII="
+                    style="width:40px;height:40px" alt="googleplay" />
+            </div>
+            <div class="feature-description">
+                <p class="feature-title">Ndeshje</p>
+                <p class="feature-text">Krijoni ndeshjet tuaja për të përballuar me lojtarë të tjerë.</p>
+            </div>
+            <div class="feature-icon" style="background:#F88B9B">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAfCAYAAAAbW8YEAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHgSURBVHgB7VfBTttAEH2z3kg9+g/qa6uAHKmpeqt7q1QquV9APqF8QekXwCekX1AkoFecW6UExQIkjvgP8AFOODvM2iZEUYicyCEHeJLl0c7svtndmfGYMAfDIHRxk/lvtE7e/T9IUAHDD1tBg0za7P+Ln7JR8xbQQqgJJ1mWbaMirD2z2ptnQw+C3ZW+Ndtg446VRB6DOyJGYHmqgLArcxJi6k4OZ0CvNTiKChPBRTv0GaMTgF2sEOLIfnNwuFOQfvx+xcye7GbXIYoejO7YtBTRnnje1VDdKguPwDKfYwfq59T4vrx8ItXR53LxltAuvDk4/j1pKDoqPUzeDw57VUjP21vCSem0/dAPv+hGds3GhBqPW0+mF9go7oCwADb6RzPtW/FBmjsEuAprwFpIx8crhxjIHeI5oCfkwBLjGTAmXSQtlkWRThOki6TFsiijFy8netecMkvCllF5fX5C3SurWr2kOaF8zmZqOB+PpodfA+mVtBbUEb29Mkpn61ZBWuZhtMicFxRIRDq1AtNqe97LT6FXimneuZ21v10RyDPMOwYUo2Y4PHLJcX5JwPlkuJMHkkLjh8HdX9tYr+S8ybF1OK/FzdPjP4//Mv5Xz1EqIKXeom4YpOxQvNkvOpN7gv2vm17pQZIAAAAASUVORK5CYII="
+                    style="width:28px;height:29px" alt="googleplay" />
+            </div>
+            <div class="feature-description">
+                <p class="feature-title">Kampionatet</p>
+                <p class="feature-text">Merr pjese ne kampionatet tona</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="events-section" id="events">
+    <p class="events-subtitle">Eventet</p>
+    <p class="events-title">Kalendari i Eventeve</p>
+    <p class="events-description">Gjeni këtu kalendarin e eventeve të organizuara nga komuniteti ynë.</p>
+    <div class="calendar-row">
+        <div class="calendar-container">
+            <div id="calendar" class="calendar"></div>
+        </div>
+    </div>
+    <a [routerLink]="['/events']" class="events-button">SHIKO EVENTET</a>
+</div>
+
+<div class="background-circle"></div>
+
+<div class="trainer-section">
+    <div class="trainer-image">
+        <img src="assets/images/coash-new.jpeg" alt="logo" />
+    </div>
+    <div class="trainer-description">
+        <p class="trainer-subtitle">Ne gjithashtu ofrojmë....</p>
+        <p class="trainer-title">Trajner Personal</p>
+        <div class="trainer-feature">
+            <p class="feature-number">01</p>
+            <p class="feature-text2">
+                <span class="feature-heading">Mundësojme</span> Liidhjen me një trajner personal të përzgjedhur me
+                kujdes rreth teje, dhe ti vetëm duhet të stërvitesh.
+            </p>
+        </div>
+        <div class="trainer-feature">
+            <p class="feature-number">02</p>
+            <p class="feature-text2">
+                <span class="feature-heading">Shërbime të personalizuara:</span> Përfito nga shërbime të
+                personalizuara,
+                foto shooting, video, personal branding...
+            </p>
+        </div>
+        <div class="trainer-feature">
+            <p class="feature-number">03</p>
+            <p class="feature-text2">
+                <span class="feature-heading">Komuniteti</span> Bëhu pjesë e komunitetit Sportify që avancojme dhe
+                përparojme së bashku.
+            </p>
+        </div>
+        <a [routerLink]="['/trainers']" class="learn-more-button">MËSO MË SHUMË</a>
+    </div>
+</div>
+
+<div class="blog-section" id="blog">
+    <p class="blog-subtitle">Blogu</p>
+    <p class="blog-title">Artikujt tanë të fundit</p>
+    <div class="blog-articles">
+        <div class="blog-article">
+            <div class="article-image">
+                <img src="assets/images/blogu-1.webp" alt="article_img" />
+            </div>
+            <div class="article-content">
+                <div>
+                    <p class="article-title">Rëndësia e Aktivitetit Fizik në Jetën e Përditshme</p>
+                    <p class="article-description">Aktiviteti fizik është çelësi për një trup të shëndetshëm dhe një
+                        mendje të kthjellët. Zbuloni se si të integroheni në një rutinë të rregullt sportive për të
+                        përmirësuar mirëqenien tuaj..</p>
+                </div>
+                <div>
+                    <a [routerLink]="['/blog']" class="read-more-link">
+                        LEXO MË SHUMË ARTIKUJ
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADQSURBVHgBnZJBCsIwEEVn0tSNCj1Kj6BQXXsD94q2N2h6BdG9PYEXqHgVjyC0KEibsVFEN51E/2YGMu+RDAFgUq2i5LaczrkZwR0iQKqF3pfrSP0loAbHbbkIgrRLgmBJtZiE6NGpbQONkA03hfpJYJM4CTgJUjIKysafuUgE6hAJY9O/JfJay9hDUi4CoM+FzWLbouRd1rmve2cXXpAOCSB5yUA9nwCO+d6BgfvbInMWdMFOAg62CmywCfuVhYQDB5tITlBTkwmNNNgd866ZBwuIZ27x4e2OAAAAAElFTkSuQmCC"
+                            alt="profile" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="blog-article">
+            <div class="article-image">
+                <img src="assets/images/blogu-3.webp" alt="article_img" />
+            </div>
+            <div class="article-content">
+                <div>
+                    <p class="article-title">Si të Zgjidhni Sportin e Duhur për Ju</p>
+                    <p class="article-description">Gjetja e sportit të duhur mund të jetë një sfidë, por është e
+                        rëndësishme për të qëndruar i motivuar dhe i angazhuar. Mësoni disa këshilla praktike për të
+                        zgjedhur aktivitetin sportiv që ju përshtatet më mirë...</p>
+                </div>
+                <div>
+                    <a [routerLink]="['/blog']" class="read-more-link">
+                        LEXO MË SHUMË ARTIKUJ
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADQSURBVHgBnZJBCsIwEEVn0tSNCj1Kj6BQXXsD94q2N2h6BdG9PYEXqHgVjyC0KEibsVFEN51E/2YGMu+RDAFgUq2i5LaczrkZwR0iQKqF3pfrSP0loAbHbbkIgrRLgmBJtZiE6NGpbQONkA03hfpJYJM4CTgJUjIKysafuUgE6hAJY9O/JfJay9hDUi4CoM+FzWLbouRd1rmve2cXXpAOCSB5yUA9nwCO+d6BgfvbInMWdMFOAg62CmywCfuVhYQDB5tITlBTkwmNNNgd866ZBwuIZ27x4e2OAAAAAElFTkSuQmCC"
+                            alt="profile" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="blog-article">
+            <div class="article-image">
+                <img src="assets/images/blogu-2.webp" alt="article_img" />
+            </div>
+            <div class="article-content">
+                <div>
+                    <p class="article-title">Sportet dhe Ndikimi i Tyre në Zhvillimin Social</p>
+                    <p class="article-description">Sportet ndihmojnë në zhvillimin e aftësive sociale dhe
+                        bashkëpunimit.
+                        Lexoni më shumë rreth përfitimeve që sportet ekipore sjellin tek individët dhe komunitetet..
+                    </p>
+                </div>
+                <div>
+                    <a [routerLink]="['/blog']" class="read-more-link">
+                        LEXO MË SHUMË ARIKUJ
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADQSURBVHgBnZJBCsIwEEVn0tSNCj1Kj6BQXXsD94q2N2h6BdG9PYEXqHgVjyC0KEibsVFEN51E/2YGMu+RDAFgUq2i5LaczrkZwR0iQKqF3pfrSP0loAbHbbkIgrRLgmBJtZiE6NGpbQONkA03hfpJYJM4CTgJUjIKysafuUgE6hAJY9O/JfJay9hDUi4CoM+FzWLbouRd1rmve2cXXpAOCSB5yUA9nwCO+d6BgfvbInMWdMFOAg62CmywCfuVhYQDB5tITlBTkwmNNNgd866ZBwuIZ27x4e2OAAAAAElFTkSuQmCC"
+                            alt="profile" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a [routerLink]="['/blog']" class="view-blog-button">SHIKO BLOGUN</a>
+</div>
+
+<div class="faq-section" id="faq">
+    <div class="faq-top">FAQ</div>
+    <div class="faq-title">PYETJE / PERGJIGJE</div>
+    <div class="faq-item" (click)="toggleFaq($event)">
+        <div class="faq-question">Çfarë është Sportify dhe si funksionon?<span class="arrow">&#9660;</span></div>
+        <div class="faq-answer">
+            <p>Sportify është një platformë që lidh komunitetin sportiv në Shqipëri...</p>
+        </div>
+    </div>
+    <div class="faq-item" (click)="toggleFaq($event)">
+        <div class="faq-question">Si mund të regjistrohem në Sportify?<span class="arrow">&#9660;</span></div>
+        <div class="faq-answer">
+            <p>Për tu regjistruar në Sportify, vizitoni faqen tonë të internetit dhe klikoni në butonin
+                "Identifikohu"...
+            </p>
+        </div>
+    </div>
+    <div class="faq-item" (click)="toggleFaq($event)">
+        <div class="faq-question">Si mund të rezervoj një fushë sportive përmes Sportify?<span
+                class="arrow">&#9660;</span></div>
+        <div class="faq-answer">
+            <p>Për të rezervuar një fushë sportive, ndiqni hapat e mëposhtëm...</p>
+        </div>
+    </div>
+    <div class="faq-item" (click)="toggleFaq($event)">
+        <div class="faq-question">A mund të anuloj një rezervim dhe si mund ta bëj këtë?<span
+                class="arrow">&#9660;</span></div>
+        <div class="faq-answer">
+            <p>Për të anuluar një rezervim, duhet të shkoni në faqen e rezervimeve dhe të klikoni "Anulo"...</p>
+        </div>
+    </div>
+    <div class="faq-item" (click)="toggleFaq($event)">
+        <div class="faq-question">A ka ndonjë tarifë për përdorimin e platformës Sportify?<span
+                class="arrow">&#9660;</span></div>
+        <div class="faq-answer">
+            <p>Përdorimi bazë i Sportify është falas, por disa shërbime mund të kërkojnë një tarifë...</p>
+        </div>
+    </div>
+    <div class="faq-item" (click)="toggleFaq($event)">
+        <div class="faq-question">Si mund të kontaktoj mbështetjen e klientit nëse kam ndonjë problem?<span
+                class="arrow">&#9660;</span></div>
+        <div class="faq-answer">
+            <p>Për të kontaktuar mbështetjen e klientit, mund të përdorni formularin tonë të kontaktit...</p>
+        </div>
+    </div>
+    <div class="faq-item" (click)="toggleFaq($event)">
+        <div class="faq-question">A mund të krijoj një event sportiv dhe si mund ta bëj këtë?<span
+                class="arrow">&#9660;</span></div>
+        <div class="faq-answer">
+            <p>Po, mund të krijoni evente sportive duke përdorur funksionin tonë "Krijo Event"...</p>
+        </div>
+    </div>
+    <div class="faq-item" (click)="toggleFaq($event)">
+        <div class="faq-question">A mund të shoh vlerësimet dhe komentet e tjera përdoruesve për fushat
+            sportive?<span class="arrow">&#9660;</span></div>
+        <div class="faq-answer">
+            <p>Po, vlerësimet dhe komentet e përdoruesve janë të disponueshme në faqen e fushës sportive...</p>
+        </div>
+    </div>
+</div>
+
+<div class="contact-container" id="contact">
+    <div class="newsletter-section">
+        <div class="newsletter-content">
+            <p class="newsletter-title">Regjistrohu në buletinin tonë!</p>
+            <p class="newsletter-subtitle">Qëndroni të lidhur dhe zbuloni të gjitha lajmet.</p>
+        </div>
+        <div class="newsletter-input">
+            <input type="email" name="email" placeholder="Email" required />
+        </div>
+    </div>
+    <div class="contact-section">
+        <div class="contact-content">
+            <div class="logo-section">
+                <img src="assets/images/sportifyLogo.png" class="logo" alt="logo" />
+                <div class="contact-info">
+                    <img src="data:image/png;base64,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"
+                        alt="location" />
+                    <a href="mailto:info@sportify.al" class="contact-email">info&#64;sportify.al</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAATCAYAAACUef2IAAABb2lDQ1BpY2MAACiRdZG9S8NQFMVPW6ViKx10EOmQoYpDC0VBHKWCXapDW8GqS/KatEKShpeUUlwFF4eCg+ji1+B/oKvgqiAIiiDi5u7XIiXe1xRapH3h5v44753Lywngz+jMsAeSgGE6PJtOSWuFdSn4jhCCVFGEZWZby7mlPPqun0f4RH9IiFn9z/VcoaJqM8A3RDzHLO4QLxBnao4leI94jJXlIvEJcZzTBYlvha54/Ca45PGXYJ7PLgJ+MVMqdbHSxazMDeJp4pihV1n7PuJLwqq5mqM+QRWFjSzSSEGCgiq2oMNBgrpJmfX2JVu+FVTIw+htoQ5OjhLK5I2TWqWpKnWNdJUeHXWR+/88bW12xpseTgGDr677OQkE94Fmw3V/T123eQYEXoBrs+OvUE7z36Q3OlrsGIjsAJc3HU05AK52gfFnS+ZySwpQ+TUN+LgARgrA6D0wvOFl1d7H+ROQ36ZfdAccHgFTdD6y+QfAwmftwl7s8QAAAAlwSFlzAAALEgAACxIB0t1+/AAAA5JJREFUOE91lGlIVFEUx999782SG6VEG7QRREZkViYFTvShyLAdMmPMoE/tUSRFYzVmGy0URgvRaIuJoPilPmXUFFTYZlC0fJAWorLdStM37/a704xMjl44797/vef+z7n/d+4VGu3MsuIyh2HMUOPYZgqjTghxtKDC39F9TeGqIp9TatqmkB2aS2/9sazyO29f1JwN1ktdOSQ53fV9TGcqlo2Nc5vOQfRjCFZsCJFb6d0muhNDahhCL3Loxhb8s7BXKS53gyJVvmHikG3fl5osY/gN+yKlvV5KuZ6xJONdLtORHktcWbhNQDqHtRLm+8LUgL8vP+D/FPULEy+rLLVtKWtwCAAHCKEvsDV5BXwSPBoCX/WKHanKt3zJRs1lOKYwtw84BGuCtPjz79bm2OBGFNQ+umEtzvA0sSGTc+cKobUQ7KwuRDp4jia0nwvHe+4mOt2jmDvOvgnYG0jXdIas2yurDvynVpx2ZJbFxgtKejYtJ+sWcBU4DbyFwPMZ52HfwWtD0q4pqCi1uv+DsBSxDb3vofce5hIgKaX/BcFuegf4MH0u1kHAMqy2J1LF1yVFlLyuKSgXZXieQZLGceZqQvBz5Gl6N9iDnwnhcYIdzA/sauueWBTHZawWlgb87VSGEi0I2RKCFNjSPgq+hsErP6J/e2+kaj5O41hn9M6O6J1AhoUwtoLP45MI9n5ua722qlqpE996zDjqxuYnkD0HDyJrpfNXZNmriBVO7ZM8sres4zSOOl4qKnHour6BI3mZc2KD0TkJCU5BmsJ8Hjh5UUbOdUo17sr3SHxxuU83DN0rNLETwhSyvkzfAtlM6vs9JwlE6n02+MPC8TkPah8Fw1c52uKIK7xbuVkmBOKQkgC7BdFq+pvMzSTYdMY3YLkKngXOwRonjRj7+uqzxi7iOI15TDLZsB+PYdhTSDe3WR0vuQiNkfpW+qr6/ghWfv3A/uF9+w/tNWOqYETkuk7B6R2k6yzbDhaeK5N1HDVS3/0j9Z2C3icgTY1gF3oH0btTBeiS4tKKkjRd6Edwms38T/WwsLG+oLI0FM0k8p48hmziv/dE/GLtIeNsbCr2ekFGzmOVRFgKKiABUh8L84AWRzzA61a9tMIfjh7buG3vCOhTJ8JfPdTHGA/Ekgi03RT6ZOVvqk/L7x+TEh2uwSw0mLp+z2mY5dy+Xq8ret/ttOUOXrV8tv/3n9qtTs+09Kzmv2Nxdgpec2lxAAAAAElFTkSuQmCC"
+                            alt="social icon" /></a>
+                    <a href="#"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAABb2lDQ1BpY2MAACiRdZG9S8NQFMVPW6ViKx10EOmQoYpDC0VBHKWCXapDW8GqS/KatEKShpeUUlwFF4eCg+ji1+B/oKvgqiAIiiDi5u7XIiXe1xRapH3h5v44753Lywngz+jMsAeSgGE6PJtOSWuFdSn4jhCCVFGEZWZby7mlPPqun0f4RH9IiFn9z/VcoaJqM8A3RDzHLO4QLxBnao4leI94jJXlIvEJcZzTBYlvha54/Ca45PGXYJ7PLgJ+MVMqdbHSxazMDeJp4pihV1n7PuJLwqq5mqM+QRWFjSzSSEGCgiq2oMNBgrpJmfX2JVu+FVTIw+htoQ5OjhLK5I2TWqWpKnWNdJUeHXWR+/88bW12xpseTgGDr677OQkE94Fmw3V/T123eQYEXoBrs+OvUE7z36Q3OlrsGIjsAJc3HU05AK52gfFnS+ZySwpQ+TUN+LgARgrA6D0wvOFl1d7H+ROQ36ZfdAccHgFTdD6y+QfAwmftwl7s8QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAg5JREFUOE/llL9rFEEUx7/zdnb31EticR4SZK8RfwSNadTCzko74SpFEISU9qL/gP+DraVKCkU7SSwsQlJED3/AiTmEqCj+yAV39+aHb/bu8NDZJJBOH7s7b2Z2Psz7CfzXIpz1dy9fb8iocsFYe9gA+y1Q5eUKvxFgQ0BIYU1kBeU8Vzzv8R7rSBmwTgIfCeK1ztO55p1bq+LelZtHIaPHcRglDC08bHksNP4MtGJe3KAYWes/EKK/SjxmvbwDlZ+TloLZXVGcbGTpjkO2J64kP42eJQsxrbQuBRqlYTbZHz3oOMw7TrxYH5r9J9kaiwPTBzExuQ8qy+Hmm8mAU5f8U7UMapRCcnIK9ZkjePXgKdrzS8g2UsiYY+cRFwvHIzK6Zvph8YruKcTjVZy4dB5nb1xFcmoKFLCBniPOeDKqRoaCMWs4kbYhexuTOHPtIhqnj3n97DiW5Lhk8roJ422Bv62uoTX3BGsv2nzb4K9rCOJs7WU/pCH5mdWxsvgHoUT2vYuXDxfwdn75t0+HSTuCDjhzNfNcoLoucX1QkhKdxRZaj57ha+cDgigsDVJRFP1C6DroJwf1ieD6e7/SLkpHVrhit5ABh3mwK9Ljn+F5koHXfz6+4zDvuSStb6d51tzNpbrT2mdOx/FGu1ST/XqIE7jm61JkTGSorEuJL5y5b7hL3ecu9W4rN/3j+78AKVXmcLSlfFoAAAAASUVORK5CYII="
+                            alt="social icon" /></a>
+                    <a href="#"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAASCAYAAAC5DOVpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEdSURBVHgB5VTBTcQwEJzNhf+V4BKuhFAB4nPAz8qLJ1TgpAMqIP4hwgPRQaiAUAGhg0j8iM/LOuGk00kcMtzv5uGRd9fj9a7WBMFDbq5AdII/wjPas9vimmptFkjoBf9EQqQTSjHHnpBGRTN6JlgwtcSSBLEGYREtxozOMx9fVGW3ttV5EYTixYjQrIUeL41yDopXUJIZosWkwE3gO23U8Elv0w1bMYhEmko2P/nwG5iyQB/ev44HHNqBJhsR33BMzZaVed7cn9qyFxpt0oB5VGZ1bnTglZcG2LILNZslyL7dKkpMHlOF9WhGWqgLNWM/2bYR3YBdOBQxduixBziPPl3asr3XRSGzl+0KHrx/DzxeLnO66ZNPoDm35ukLMsNhUgeXdjkAAAAASUVORK5CYII="
+                            alt="social icon" /></a>
+                    <a href="#"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEiSURBVHgB7ZTLUcMwEIb/lVxASnAHpATTQZiBzHDC5nEGKpBdAQ0AUU4MgUsqwCW4BJWQSzhhLZInJiIHiM2BHPLNSLOzL61WOwJWTFI1wB8hvz1nShPRmRNNbfnwVBcGPRAvlypZJfLEQtA1eiL4A4tvGqYKPRFjXVSwdANGxRb5O9s5dgGaXamhsGGfqDx+UFMvvV7kk1Zbg+e2RuV76l5t1HgSDIF06x8RY2AZ6ToZ+60xhnoXBClw58T4y5MRMziZnefJ+DHPImxP+pPtKVVTgS4wSmIauVnMXFUmNEkpDrpUtlgyH2U6b0bJVWIk0dv6IB5uX5kbnUwX4UyaTZdu1/yFfbL/TnZyX5SSorhdS8u3rTHUSxGlYaD/QDfjPgHenmqf/qrMVQAAAABJRU5ErkJggg=="
+                            alt="social icon" /></a>
+                </div>
+            </div>
+            <div class="sponsors-section">
+                <p class="sponsors-title">SPONSORAT</p>
+                <div class="sponsors-logos">
+                    <img src="assets/images/sponsor.png" class="sponsor-logo" />
+                    <img src="assets/images/sponsor.png" class="sponsor-logo" />
+                    <img src="assets/images/sponsor.png" class="sponsor-logo" />
+                    <img src="assets/images/sponsor.png" class="sponsor-logo" />
+                </div>
+            </div>
+            <div class="platform-info">
+                <p class="platform-title">PLATFORMA SPORTIFY</p>
+                <p class="platform-description">Aplikacion i unifikuar për të gjitha nevojat tuaja sportive.</p>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <p>© Copyright Sportify / Të drejtat e rezervuara - 2024</p>
+        </div>
+    </div>
+</div>

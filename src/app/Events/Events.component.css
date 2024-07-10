@@ -1,0 +1,346 @@
+:root {
+    --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
+    --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
+    --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
+    --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
+    --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+    --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+}
+
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: Montserrat;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 73px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    border: 1px solid transparent;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-family: var(--fa-font-regular);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo1 {
+    width: 170px;
+    height: 70px;
+}
+
+.navbar-burger {
+    align-self: center;
+    color: #AA6280;
+    margin-left: auto;
+}
+
+.navbar-menu {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-start,
+.navbar-end {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-start a {
+    margin-left: 50px;
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.navbar-end a {
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.navBarSite__HoverText,
+.navBarSite__HoverSocial {
+    font-weight: bold;
+}
+
+.navBarSite__HoverSocial {
+    margin-left: 20px;
+}
+
+.navBarSite__HoverSocial img {
+    width: 24px;
+    height: 24px;
+}
+
+.button-identifikohu {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    background-image: linear-gradient(90deg, #D85E4B, #A15477);
+    border-radius: 25px;
+    padding: 14px 30px;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.is-hidden-desktop {
+    display: none;
+}
+
+.events-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.events-subtitle {
+    font-weight: 600;
+    font-size: 25px;
+    color: #F56D44;
+    margin: 40px 0px -35px 0px;
+}
+
+.events-title {
+    font-weight: 900;
+    font-size: 60px;
+    color: black;
+}
+
+.events-description {
+    font-size: 20px;
+    width: 800px;
+    text-align: center;
+    margin: -10px 0px 0px 0px;
+}
+
+.calendar-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 52px;
+    align-items: center;
+}
+
+
+.filters-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-left: calc((100% - 50%) / 2);
+    margin-right: calc((100% - 50%) / 2);
+    margin-bottom: 60px;
+}
+
+
+#filter-button {
+    background-color: #fff;
+    color: #D85E4B;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #D85E4B;
+    cursor: pointer;
+}
+
+#month-filter,
+#location-filter,
+#sport-filter {
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    box-shadow: #777;
+    color: #D85E4B;
+}
+
+
+.filters-container label {
+    margin-right: 10px;
+    color: #D85E4B;
+    font-weight: 700;
+}
+
+.filters-container select {
+    margin-right: 20px;
+}
+
+.add-event-container {
+    align-items: center;
+    width: 80%;
+    margin-left: calc((100% - 30%) / 2);
+    margin-right: calc((100% - 30%) / 2);
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 25px;
+    color: #D85E4B;
+    text-align: center;
+}
+
+.arlo #upcoming-events {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+    margin-left: calc((100% - 30%) / 2);
+    margin-right: calc((100% - 30%) / 2);
+}
+
+.arlo .arlo-event-listitem {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.arlo .arlo-date {
+    flex: 0 1 15%;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.arlo .arlo-date .arlo-start-day {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.arlo .arlo-date .arlo-start-month-year {
+    margin-top: 5px;
+    font-size: 1em;
+    color: #777;
+}
+
+.arlo .arlo-event-content {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.arlo .arlo-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.arlo .arlo-summary {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.arlo .add-event-container label {
+    margin-top: 10px;
+}
+
+.arlo .add-event-container input,
+.arlo .add-event-container select,
+.arlo .add-event-container textarea {
+    margin-top: 5px;
+}
+
+.arlo .hidden {
+    display: none;
+}
+
+.arlo #show-add-event-form {
+    background-color: #08cec2;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.arlo .close-button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #ff1d87;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.arlo .btn {
+    background-image: linear-gradient(90deg, #D85E4B, #A15477);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+
+
+.arlo .btn-primary {
+    background-color: #08cec2;
+    margin-left: 20px;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
