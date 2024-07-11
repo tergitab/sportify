@@ -29,7 +29,7 @@ jobs:
       with:
         args: --follow-symlinks --delete
       env:
-        AWS_S3_BUCKET: 'elasticbeanstalk-us-east-1-483575847819'  # Replaced with specified S3 bucket
+        AWS_S3_BUCKET: 'elasticbeanstalk-us-east-1-483575847819' 
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         SOURCE_DIR: './dist/sportify'
@@ -39,7 +39,7 @@ jobs:
       uses: chetan/invalidate-cloudfront-action@v1
       env:
         AWS_REGION: 'us-east-1'
-        DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}  # Your CloudFront distribution ID
+        DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
         PATHS: '/'
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
