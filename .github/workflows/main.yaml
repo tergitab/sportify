@@ -3,17 +3,33 @@ name: Deploy Angular App to AWS S3
 on:
   push:
     branches:
-    - main
+      - main  # Set this to your default branch
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@master
-    - uses: jakejarvis/s3-sync-action@master
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
       with:
-        args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
+        node-version: 20  
+
+    - name: Install Dependencies
+      run: npm install --legacy-peer-deps
+
+    - name: Build Angular Project
+      run: npm run build
+
+    - name: Deploy to AWS S3
+      uses: jakejarvis/s3-sync-action@v0.5.1
+      with:
+        args: --acl public-read --follow-symlinks --delete --exclude '.git/*'
       env:
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'us-east-1'
