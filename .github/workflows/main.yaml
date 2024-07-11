@@ -25,7 +25,7 @@ jobs:
       run: npm run build
 
     - name: List Build Directory
-      run: ls -la dist/sportify
+      run: ls -la dist/sportify/browse
 
     - name: Deploy to AWS S3
       uses: jakejarvis/s3-sync-action@v0.5.1
