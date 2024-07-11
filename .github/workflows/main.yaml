@@ -28,7 +28,7 @@ jobs:
     - name: Deploy to AWS S3
       uses: jakejarvis/s3-sync-action@v0.5.1
       with:
-        args: --follow-symlinks --delete
+        args: aws s3 sync dist/sportify/browser s3://elasticbeanstalk-us-east-1-483575847819 --acl public-read --delete
       env:
         AWS_S3_BUCKET: 'elasticbeanstalk-us-east-1-483575847819'  # Replaced with specified S3 bucket
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
