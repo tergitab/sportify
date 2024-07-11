@@ -18,30 +18,28 @@ jobs:
       with:
         node-version: 20  # Set this to your project's Node.js version
 
-
     - name: Install Dependencies
       run: npm install --legacy-peer-deps
- 
+
     - name: Build Angular Project
       run: npm run build
- 
+
     - name: Deploy to AWS S3
       uses: jakejarvis/s3-sync-action@v0.5.1
       with:
         args: --follow-symlinks --delete
       env:
-        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }} 
+        AWS_S3_BUCKET: 'elasticbeanstalk-us-east-1-483575847819'  # Replaced with specified S3 bucket
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        SOURCE_DIR: './dist/sportify'  # Corrected path
-        AWS_REGION: 'us-east-1'  # Replace with your AWS region
+        SOURCE_DIR: './dist/sportify'
+        AWS_REGION: 'us-east-1'
 
-        
     - name: Invalidate CloudFront Distribution Cache
       uses: chetan/invalidate-cloudfront-action@v1
       env:
-        AWS_REGION: 'us-east-1'  # Replace with your AWS region
-        DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}  # Your CloudFront Distribution ID
-        PATHS: '/'  # Paths to invalidate, typically '/'
+        AWS_REGION: 'us-east-1'
+        DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}  # Your CloudFront distribution ID
+        PATHS: '/'
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
