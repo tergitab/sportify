@@ -36,6 +36,7 @@ jobs:
         SOURCE_DIR: './dist/sportify'  # Corrected path
         AWS_REGION: 'us-east-1'  # Replace with your AWS region
 
+        
     - name: Invalidate CloudFront Distribution Cache
       uses: chetan/invalidate-cloudfront-action@v1
       env:
