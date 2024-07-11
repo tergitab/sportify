@@ -1,4 +1,5 @@
-name: Deploy Angular App to AWS S3 
+name: Deploy Angular App to AWS S3
+
 on:
   push:
     branches:
@@ -23,21 +24,22 @@ jobs:
     - name: Build Angular Project
       run: npm run build
 
-    - name: List Build Directory
-      run: ls -la dist/sportify  # List all files in the build directory to verify the build output
-
     - name: Deploy to AWS S3
-      run: aws s3 sync dist/sportify s3://elasticbeanstalk-us-east-1-483575847819 --acl public-read --delete
+      uses: jakejarvis/s3-sync-action@v0.5.1
+      with:
+        args: --follow-symlinks --delete
       env:
+        AWS_S3_BUCKET: 'elasticbeanstalk-us-east-1-483575847819'  # Replaced with specified S3 bucket
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        SOURCE_DIR: './dist/sportify'
         AWS_REGION: 'us-east-1'
 
     - name: Invalidate CloudFront Distribution Cache
       uses: chetan/invalidate-cloudfront-action@v1
       env:
         AWS_REGION: 'us-east-1'
-        DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-        PATHS: '/*'
+        DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}  # Your CloudFront distribution ID
+        PATHS: '/'
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
