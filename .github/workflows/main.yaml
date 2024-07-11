@@ -27,12 +27,12 @@ jobs:
     - name: Deploy to AWS S3
       uses: jakejarvis/s3-sync-action@v0.5.1
       with:
-        args: --follow-symlinks --delete
+        args: "--follow-symlinks --delete"
+        source_dir: "dist/sportify"
       env:
-        AWS_S3_BUCKET: 'elasticbeanstalk-us-east-1-483575847819' 
+        AWS_S3_BUCKET: 'elasticbeanstalk-us-east-1-483575847819'
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        SOURCE_DIR: './dist/sportify/browser'
         AWS_REGION: 'us-east-1'
 
     - name: Invalidate CloudFront Distribution Cache
