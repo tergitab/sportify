@@ -109,10 +109,7 @@
                     }
                 },
                 "deploy": {
-                    "builder": "@jefiozie/ngx-aws-deploy:deploy",
-                    "options": {
-                        "acl": "public-read"
-                    }
+                    "builder": "@jefiozie/ngx-aws-deploy:deploy"
                 }
             }
         }
