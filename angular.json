@@ -107,6 +107,14 @@
                             "node_modules/@fullcalendar/bootstrap/main.min.js"
                         ]
                     }
+                },
+                "deploy": {
+                    "builder": "@jefiozie/ngx-aws-deploy:deploy",
+                    "options": {
+                        "region": "us-east-1",
+                        "bucket": "elasticbeanstalk-us-east-1-483575847819",
+                        "acl": "public-read"
+                    }
                 }
             }
         }
