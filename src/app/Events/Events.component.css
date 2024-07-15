@@ -134,7 +134,6 @@ body,
     align-items: center;
 }
 
-
 .filters-container {
     display: flex;
     justify-content: center;
@@ -144,7 +143,6 @@ body,
     margin-right: calc((100% - 50%) / 2);
     margin-bottom: 60px;
 }
-
 
 #filter-button {
     background-color: #fff;
@@ -165,7 +163,6 @@ body,
     box-shadow: #777;
     color: #D85E4B;
 }
-
 
 .filters-container label {
     margin-right: 10px;
@@ -244,7 +241,6 @@ h2 {
     color: #555;
 }
 
-
 form {
     display: flex;
     flex-direction: column;
@@ -298,16 +294,12 @@ form {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-
 }
-
-
 
 .arlo .btn-primary {
     background-color: #08cec2;
     margin-left: 20px;
 }
-
 
 .hidden {
     display: none;
@@ -343,4 +335,220 @@ form {
     border: none;
     font-size: 20px;
     cursor: pointer;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .navbar-burger {
+        display: block;
+    }
+
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-burger:hover+.navbar-menu,
+    .navbar-menu:hover {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 73px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        z-index: 1;
+        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-start a,
+    .navbar-end a {
+        margin-left: 0;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .calendar-row {
+        flex-direction: column;
+    }
+
+    .filters-container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .events-description {
+        width: 100%;
+    }
+
+    .arlo #upcoming-events {
+        width: 100%;
+    }
+
+    .add-event-container {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 10px;
+    }
+
+    .navbar-start a,
+    .navbar-end a {
+        font-size: 1rem;
+    }
+
+    .button-identifikohu {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+
+    .filters-container,
+    .event-content,
+    .timetable {
+        padding: 10px;
+    }
+
+    .time-slot {
+        padding: 8px;
+    }
+
+    .calendar-row {
+        flex-direction: column;
+    }
+
+    .filters-container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .events-description {
+        font-size: 18px;
+        width: 100%;
+    }
+
+    .events-subtitle {
+        font-size: 22px;
+    }
+
+    .events-title {
+        font-size: 50px;
+    }
+
+    .arlo #upcoming-events {
+        width: 70%;
+    }
+
+    .add-event-container {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .arlo .arlo-event-listitem {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .arlo .arlo-date {
+        flex: none;
+        margin-bottom: 10px;
+    }
+
+    .arlo .arlo-event-content {
+        margin-left: 0;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .events-description {
+        font-size: 16px;
+    }
+
+    .events-title {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0 5px;
+    }
+
+    .navbar-start a,
+    .navbar-end a {
+        font-size: 0.9rem;
+    }
+
+    .button-identifikohu {
+        font-size: 10px;
+        padding: 8px 16px;
+    }
+
+    .filters-container,
+    .event-content,
+    .timetable {
+        padding: 5px;
+    }
+
+    .time-slot {
+        padding: 5px;
+    }
+
+    .calendar-row {
+        flex-direction: column;
+    }
+
+    .filters-container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .events-description {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .events-subtitle {
+        font-size: 18px;
+    }
+
+    .events-title {
+        font-size: 30px;
+    }
+
+    .arlo #upcoming-events {
+        width: 70%;
+    }
+
+    .add-event-container {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .arlo .arlo-event-listitem {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .arlo .arlo-date {
+        flex: none;
+        margin-bottom: 10px;
+    }
+
+    .arlo .arlo-event-content {
+        margin-left: 0;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
 }

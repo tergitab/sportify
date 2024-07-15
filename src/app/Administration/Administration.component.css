@@ -39,6 +39,7 @@ body,
 }
 
 .navbar-burger {
+    display: none;
     align-self: center;
     color: #AA6280;
     margin-left: auto;
@@ -223,4 +224,143 @@ body,
 .time-slot.booked {
     background-color: #D85E4B;
     color: white;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .navbar-burger {
+        display: block;
+    }
+
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-burger:hover+.navbar-menu,
+    .navbar-menu:hover {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 73px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        z-index: 1;
+        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-start a,
+    .navbar-end a {
+        margin-left: 0;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .calendar-events-container {
+        flex-direction: column;
+    }
+
+    .calendar-container {
+        border-right: none;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .event-date {
+        font-size: 1rem;
+    }
+
+    .event-title {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .calendar-events-container {
+        flex-direction: column;
+    }
+
+    .calendar-container {
+        border-right: none;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .event-date {
+        font-size: 0.8rem;
+    }
+
+    .event-title {
+        font-size: 0.9rem;
+    }
+
+    .navbar {
+        padding: 0 10px;
+    }
+
+    .navbar-start a,
+    .navbar-end a {
+        font-size: 1rem;
+    }
+
+    .button-identifikohu {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+
+    .filters-container,
+    .event-content,
+    .timetable {
+        padding: 10px;
+    }
+
+    .time-slot {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-events-container {
+        flex-direction: column;
+    }
+
+    .calendar-container {
+        border-right: none;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .event-date {
+        font-size: 0.7rem;
+    }
+
+    .event-title {
+        font-size: 0.8rem;
+    }
+
+    .navbar {
+        padding: 0 5px;
+    }
+
+    .navbar-start a,
+    .navbar-end a {
+        font-size: 0.9rem;
+    }
+
+    .button-identifikohu {
+        font-size: 10px;
+        padding: 8px 16px;
+    }
+
+    .filters-container,
+    .event-content,
+    .timetable {
+        padding: 5px;
+    }
+
+    .time-slot {
+        padding: 5px;
+    }
 }

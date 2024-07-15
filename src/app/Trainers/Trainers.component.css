@@ -1,3 +1,12 @@
+:root {
+    --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
+    --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
+    --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
+    --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
+    --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+    --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+}
+
 body,
 #___gatsby,
 #gatsby-focus-wrapper {
@@ -39,7 +48,6 @@ body,
     flex: 1;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .navbar-start,
@@ -118,7 +126,6 @@ video#background-video {
 .hero-title {
     font-size: 3em;
     margin-top: 20vh;
-
 }
 
 .hero-subtitle {
@@ -197,9 +204,7 @@ video#background-video {
     align-items: center;
     text-align: center;
     align-self: center;
-
 }
-
 
 .arlo-date {
     margin-right: 20px;
@@ -248,11 +253,11 @@ video#background-video {
     margin: 5px;
 }
 
-
 .events-section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 60px 20px;
 }
 
 .events-subtitle {
@@ -270,7 +275,7 @@ video#background-video {
 
 .events-description {
     font-size: 20px;
-    width: 1000px;
+    width: 100%;
     text-align: center;
     margin: -20px 0px 20px 0px;
 }
@@ -316,6 +321,8 @@ video#background-video {
     justify-content: space-between;
     box-sizing: border-box;
     margin-bottom: 15px;
+    margin-top: 40px;
+    /* Added margin-top for spacing */
 }
 
 .newsletter-content {
@@ -454,10 +461,225 @@ video#background-video {
     flex-direction: row;
     float: inline-end;
     padding: 0px 30px;
-
 }
 
 .footer-bottom p {
     color: #000;
+}
 
+/* Responsive Adjustments */
+
+@media (max-width: 1200px) {
+    .navbar-burger {
+        display: block;
+    }
+
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-burger:hover+.navbar-menu,
+    .navbar-menu:hover {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 73px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        z-index: 1;
+        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-start a,
+    .navbar-end a {
+        margin-left: 0;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .calendar-row {
+        flex-direction: column;
+    }
+
+    .filters-container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .events-description {
+        width: 100%;
+    }
+
+    .arlo-event-listitem {
+        flex-direction: column;
+    }
+
+    .add-event-container {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 10px;
+    }
+
+    .navbar-start a,
+    .navbar-end a {
+        font-size: 1rem;
+    }
+
+    .button-identifikohu {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+
+    .filters-container,
+    .event-content,
+    .timetable {
+        padding: 10px;
+    }
+
+    .time-slot {
+        padding: 8px;
+    }
+
+    .calendar-row {
+        flex-direction: column;
+    }
+
+    .filters-container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .events-description {
+        font-size: 18px;
+        width: 100%;
+    }
+
+    .events-subtitle {
+        font-size: 22px;
+    }
+
+    .events-title {
+        font-size: 50px;
+    }
+
+    .promo-image img {
+        max-width: 300px;
+        margin: 7px 15px 7px 7px;
+    }
+
+    .arlo-event-listitem {
+        flex-direction: column;
+    }
+
+    .add-event-container {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .newsletter-title {
+        font-size: 32px;
+    }
+
+    .newsletter-subtitle {
+        font-size: 24px;
+    }
+
+    .newsletter-input input {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0 5px;
+    }
+
+    .navbar-start a,
+    .navbar-end a {
+        font-size: 0.9rem;
+    }
+
+    .button-identifikohu {
+        font-size: 10px;
+        padding: 8px 16px;
+    }
+
+    .filters-container,
+    .event-content,
+    .timetable {
+        padding: 5px;
+    }
+
+    .time-slot {
+        padding: 5px;
+    }
+
+    .calendar-row {
+        flex-direction: column;
+    }
+
+    .filters-container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .events-description {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .events-subtitle {
+        font-size: 18px;
+    }
+
+    .events-title {
+        font-size: 30px;
+    }
+
+    .promo-image img {
+        max-width: 200px;
+        margin: 7px 10px 7px 7px;
+    }
+
+    .arlo-event-listitem {
+        flex-direction: column;
+    }
+
+    .add-event-container {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .newsletter-title {
+        font-size: 28px;
+    }
+
+    .newsletter-subtitle {
+        font-size: 18px;
+    }
+
+    .newsletter-input input {
+        width: 100%;
+        max-width: 250px;
+    }
 }
