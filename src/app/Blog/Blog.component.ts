@@ -16,7 +16,7 @@ export class BlogComponent {
     articles: Article[] = [
         {
             title: 'Rëndësia e Aktivitetit Fizik në Jetën e Përditshme',
-            description: 'Aktiviteti fizik është çelësi për një trup të shëndetshëm dhe një mendje të kthjellët. Zbuloni se si të integroheni në një rutinë të rregullt sportive për të përmirësuar mirëqenien tuaj.',
+            description: 'Aktiviteti fizik është çelësi për një trup të shëndetshëm dhe një mendje të kthjellët. Zbuloni se si të integroheni në një rutinë të rregullt sportive.',
             image: 'assets/images/blogu-1.webp',
             content: 'Këtu vjen përmbajtja e plotë e artikullit për rëndësinë e aktivitetit fizik në jetën e përditshme...'
         },
