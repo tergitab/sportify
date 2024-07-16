@@ -1,18 +1,15 @@
-:root {
-    --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
-    --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
-    --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
-    --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
-    --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
-    --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
-}
-
 body,
 #___gatsby,
 #gatsby-focus-wrapper {
     width: 100%;
     overflow-x: hidden;
     font-family: Montserrat;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 .navbar {
@@ -139,6 +136,7 @@ body,
     height: 400px;
     /* Adjust the height as needed */
     width: 100%;
+    box-sizing: border-box;
 }
 
 .article-image img {
@@ -156,6 +154,7 @@ body,
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    box-sizing: border-box;
 }
 
 .article-title {
@@ -171,6 +170,11 @@ body,
     color: #000000;
     margin-top: 18px;
     text-align: justify;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /* Limit to 4 lines */
+    -webkit-box-orient: vertical;
 }
 
 .read-more-link {
@@ -190,7 +194,6 @@ body,
     cursor: pointer;
     float: left;
     margin: 20px 10px 0px 10px;
-
 }
 
 .selected-article {
@@ -215,6 +218,7 @@ body,
     flex-direction: row;
     align-items: flex-start;
     width: 100%;
+    gap: 20px;
 }
 
 .selected-article-image {
@@ -222,11 +226,156 @@ body,
     /* Adjust the width as needed */
     height: auto;
     object-fit: cover;
-    margin-right: 20px;
 }
 
 .selected-article-description {
     font-size: 16px;
     text-align: justify;
     flex: 1;
+}
+
+@media (max-width: 1200px) {
+    .navbar-burger {
+        display: block;
+    }
+
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-burger:hover+.navbar-menu,
+    .navbar-menu:hover {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 73px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        z-index: 1;
+        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-start a,
+    .navbar-end a {
+        margin-left: 0;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .blog-articles {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-burger {
+        display: none;
+    }
+
+    .navbar-start,
+    .navbar-end .nav-social {
+        display: none;
+    }
+
+    .logo1 {
+        width: 115px;
+        height: 50px;
+    }
+
+    .button-identifikohu {
+        margin-left: auto;
+    }
+
+    .blog-title {
+        font-size: 2rem;
+    }
+
+    .blog-articles {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .blog-article {
+        height: auto;
+        /* Allow height to adjust */
+    }
+
+    .selected-article-content {
+        flex-direction: column;
+    }
+
+    .selected-article-image {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo1 {
+        width: 115px;
+        height: 50px;
+    }
+
+    .button-identifikohu {
+        margin-left: auto;
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+
+    .blog-subtitle {
+        font-size: 16px;
+    }
+
+    .blog-title {
+        font-size: 1.5rem;
+    }
+
+    .blog-articles {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+        /* Reduce gap between articles */
+    }
+
+    .blog-article {
+        padding: 10px;
+        /* Reduce padding */
+    }
+
+    .article-title {
+        font-size: 18px;
+        /* Reduce font size */
+    }
+
+    .article-description {
+        font-size: 12px;
+        /* Reduce font size */
+    }
+
+    .selected-article-title {
+        font-size: 24px;
+    }
+
+    .selected-article-content {
+        flex-direction: column;
+        gap: 10px;
+        /* Add gap between image and text */
+    }
+
+    .selected-article-image {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 }

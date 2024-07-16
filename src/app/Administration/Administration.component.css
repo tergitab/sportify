@@ -278,6 +278,29 @@ body,
 }
 
 @media (max-width: 768px) {
+
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-burger {
+        display: none;
+    }
+
+    .navbar-start,
+    .navbar-end .nav-social {
+        display: none;
+    }
+
+    .logo1 {
+        width: 100px;
+        height: 40px;
+    }
+
+    .button-identifikohu {
+        margin-left: auto;
+    }
+
     .calendar-events-container {
         flex-direction: column;
     }
@@ -322,13 +345,19 @@ body,
 }
 
 @media (max-width: 480px) {
+
+    .logo1 {
+        width: 115px;
+        /* Make logo smaller for smaller screens */
+        height: 50px;
+    }
+
     .calendar-events-container {
         flex-direction: column;
     }
 
     .calendar-container {
         border-right: none;
-        margin-right: 0;
         margin-bottom: 20px;
     }
 

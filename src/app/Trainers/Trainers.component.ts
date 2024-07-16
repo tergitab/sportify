@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./Trainers.component.css']
 })
 export class TrainersComponent {
+    isMenuActive: boolean = false;
     showRegisterForm = false;
     showFindCoach = false;
     announcements: { name: string; contactNumber: string; location: string, date: Date, city: string, sport: string, time: string }[] = [];
