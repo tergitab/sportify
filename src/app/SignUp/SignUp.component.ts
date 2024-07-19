@@ -1,37 +1,65 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { environment } from '../environment/environment';
 
 @Component({
-    selector: 'app-SignUp',
+    selector: 'app-sign-up',
     templateUrl: './SignUp.component.html',
     styleUrls: ['./SignUp.component.css']
 })
 export class SignUpComponent implements OnInit {
 
-    selectedUserType: string | undefined; // Track selected user type
+    selectedUserType: string | undefined;
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: Router) { }
 
     ngOnInit() {
     }
 
     onSubmit(form: any) {
         const userData = {
-            username: form.username, // Include username here
+            username: form.username,
             email: form.email,
             password: form.password,
-            role: this.selectedUserType // Use selectedUserType here
+            role: this.selectedUserType
         };
 
-        this.http.post<any>('http://localhost:8080/users/register', userData)
+        const registerUrl = `${environment.apiBaseUrl}/users/register`;
+
+        this.http.post<any>(registerUrl, userData)
             .subscribe({
                 next: response => {
                     console.log('Registration successful:', response);
-                    // Handle success, e.g., navigate to another page
+                    // Automatically log in the user after successful registration
+                    this.loginUser(form.email, form.password);
                 },
                 error: error => {
                     console.error('Error registering user:', error);
-                    // Handle error, display a message to the user
+                }
+            });
+    }
+
+    loginUser(email: string, password: string) {
+        const loginData = { email, password };
+        const loginUrl = `${environment.apiBaseUrl}/public/login`;
+
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json'
+        });
+
+        this.http.post<any>(loginUrl, loginData, { headers, observe: 'response' })
+            .subscribe({
+                next: response => {
+                    console.log('Login successful:', response);
+                    const token = response.headers.get('Authorization');
+                    if (token) {
+                        localStorage.setItem('authToken', token);
+                    }
+                    this.router.navigate(['/dashboard']);
+                },
+                error: error => {
+                    console.error('Error logging in:', error);
                 }
             });
     }

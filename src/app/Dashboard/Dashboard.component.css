@@ -119,10 +119,6 @@ body,
     margin: 25px 0 -50px;
 }
 
-.button-identifikohu2 {
-    display: none;
-}
-
 .background-section {
     display: flex;
     flex-direction: column;
@@ -936,21 +932,8 @@ body,
     }
 
     .nav-social,
-    .button-identifikohu {
+    .navbar-start a {
         display: none;
-    }
-
-    .button-identifikohu2 {
-        display: inline;
-        font-size: 14px;
-        font-weight: 700;
-        color: white;
-        background-image: linear-gradient(90deg, #D85E4B, #A15477);
-        border-radius: 25px;
-        padding: 14px 30px;
-        margin-left: 38%;
-        text-decoration: none;
-
     }
 
 
@@ -1089,28 +1072,34 @@ body,
 }
 
 @media (max-width: 480px) {
-    .navbar-menu {
-        display: none;
+
+    .nav-social {
+        margin-left: -20%;
+    }
+
+    .logo1 {
+        width: 115px;
+        height: 50px;
+    }
+
+    .navbar-start a {
+        margin-left: 0;
+        padding: 10px 20px;
+        width: 50%;
+        text-align: left;
     }
 
     .nav-social,
-    .button-identifikohu {
+    .navbar-start a {
         display: none;
     }
 
-    .button-identifikohu2 {
-        display: inline;
-        font-size: 14px;
-        font-weight: 700;
-        color: white;
-        background-image: linear-gradient(90deg, #D85E4B, #A15477);
-        border-radius: 25px;
-        padding: 14px 30px;
-        margin-left: 30%;
-        text-decoration: none;
-
+    .button-identifikohu {
+        width: 125px;
+        height: 40px;
+        font-size: 10px;
+        text-align: center;
     }
-
 
     .hero-section {
         margin-bottom: 7%;

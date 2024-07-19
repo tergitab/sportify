@@ -30,7 +30,8 @@
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAASCAYAAAC5DOVpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEdSURBVHgB5VTBTcQwEJzNhf+V4BKuhFAB4nPAz8qLJ1TgpAMqIP4hwgPRQaiAUAGhg0j8iM/LOuGk00kcMtzv5uGRd9fj9a7WBMFDbq5AdII/wjPas9vimmptFkjoBf9EQqQTSjHHnpBGRTN6JlgwtcSSBLEGYREtxozOMx9fVGW3ttV5EYTixYjQrIUeL41yDopXUJIZosWkwE3gO23U8Elv0w1bMYhEmko2P/nwG5iyQB/ev44HHNqBJhsR33BMzZaVed7cn9qyFxpt0oB5VGZ1bnTglZcG2LILNZslyL7dKkpMHlOF9WhGWqgLNWM/2bYR3YBdOBQxduixBziPPl3asr3XRSGzl+0KHrx/DzxeLnO66ZNPoDm35ukLMsNhUgeXdjkAAAAASUVORK5CYII="
                     alt="logo" />
             </a>
-            <a [routerLink]="['/login']" class="button-identifikohu">IDENTIFIKOHU</a>
+            <a [routerLink]="['/login']" *ngIf="!isLoggedIn" class="button-identifikohu">IDENTIFIKOHU</a>
+            <a (click)="logout()" *ngIf="isLoggedIn" class="button-identifikohu">DILNI</a>
         </div>
     </div>
 </nav>
@@ -46,7 +47,6 @@
     </p>
     <p class="hero-text">Rezervo, Luaj, Shijo</p>
 </div>
-<a [routerLink]="['/login']" class="button-identifikohu2">IDENTIFIKOHU</a>
 
 
 <div class="background-section">

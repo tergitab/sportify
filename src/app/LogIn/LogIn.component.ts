@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
     selector: 'app-login',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LogInComponent {
 
-    constructor(private http: HttpClient, private router: Router) { }
+    constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }
 
     onSubmit(form: any): void {
         const loginData = {
@@ -17,26 +18,23 @@ export class LogInComponent {
             password: form.password
         };
 
-        // Adjust the API endpoint based on your backend setup
-        const loginUrl = 'http://localhost:8080/public/login';
+        const loginUrl = 'http://app.sportify-al.com/public/login';
 
-        // Assuming you need to set headers or handle authentication tokens
         const headers = new HttpHeaders({
             'Content-Type': 'application/json'
-            // Add any other headers if needed
         });
 
         this.http.post<any>(loginUrl, loginData, { headers })
             .subscribe({
                 next: response => {
                     console.log('Login successful:', response);
-
-                    // Example navigation after successful login
-                    this.router.navigate(['/dashboard']);
+                    if (response.token) {
+                        this.authService.login(response.token);
+                        this.router.navigate(['/dashboard']);
+                    }
                 },
                 error: error => {
                     console.error('Error logging in:', error);
-                    // Handle error (display message to the user, etc.)
                 }
             });
     }
