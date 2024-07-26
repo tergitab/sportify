@@ -1095,9 +1095,9 @@ body,
     }
 
     .button-identifikohu {
-        width: 125px;
-        height: 40px;
-        font-size: 10px;
+        width: 155px;
+        height: 43px;
+        font-size: 13px;
         text-align: center;
     }
 
@@ -1145,6 +1145,10 @@ body,
         margin-bottom: 10%;
     }
 
+    .app-description {
+        margin-left: 10px;
+    }
+
     .events-subtitle,
     .trainer-subtitle {
         margin-bottom: 2%;
@@ -1159,6 +1163,7 @@ body,
     .faq-answer {
         width: 100%;
     }
+
 
     .calendar-row,
     .trainer-feature,

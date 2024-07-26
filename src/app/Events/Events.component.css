@@ -347,36 +347,26 @@ form {
 
 /* Media Queries */
 @media (max-width: 1200px) {
-    .navbar-burger {
-        display: block;
+
+    .nav-social {
+        margin-left: -20%;
     }
 
-    .navbar-menu {
-        display: none;
-    }
 
-    .navbar-burger:hover+.navbar-menu,
-    .navbar-menu:hover {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        position: absolute;
-        top: 73px;
-        left: 0;
-        width: 100%;
-        background-color: white;
-        z-index: 1;
-        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar-start a,
-    .navbar-end a {
+    .navbar-start a {
         margin-left: 0;
         padding: 10px 20px;
-        width: 100%;
+        width: 50%;
         text-align: left;
     }
 
+    .nav-social {
+        display: none;
+    }
+
+    .navbar-end .button-identifikohu {
+        margin-left: auto;
+    }
 
     .filters-container {
         margin-left: 16%;
@@ -400,26 +390,22 @@ form {
 }
 
 @media (max-width: 768px) {
-    .navbar-menu {
+    .nav-social {
+        margin-left: -20%;
+    }
+
+
+
+    .navbar-start a {
+        margin-left: 0;
+        padding: 10px 20px;
+        width: 50%;
+        text-align: left;
+    }
+
+    .nav-social,
+    .navbar-start a {
         display: none;
-    }
-
-    .navbar-burger {
-        display: none;
-    }
-
-    .navbar-start,
-    .navbar-end .nav-social {
-        display: none;
-    }
-
-    .logo1 {
-        width: 100px;
-        height: 40px;
-    }
-
-    .button-identifikohu {
-        margin-left: auto;
     }
 
     .filters-container,
@@ -491,16 +477,48 @@ form {
 }
 
 @media (max-width: 480px) {
+    .nav-social {
+        margin-left: -20%;
+    }
+
     .logo1 {
-        width: 115px;
-        /* Make logo smaller for smaller screens */
-        height: 50px;
+        width: 125px;
+        height: 55px;
+    }
+
+    .navbar-start a {
+        margin-left: 0;
+        padding: 10px 20px;
+        width: 50%;
+        text-align: left;
+    }
+
+    .nav-social,
+    .navbar-start a {
+        display: none;
+    }
+
+    .button-identifikohu {
+        width: 105px;
+        height: 20px;
+        font-size: 14px;
+        text-align: center;
     }
 
     .filters-container,
     .event-content,
     .timetable {
         padding: 5px;
+    }
+
+    #filters {
+        font-size: 15px;
+        margin-left: -8px;
+    }
+
+    #month-filter,
+    #sport-filter {
+        width: 80px;
     }
 
     .time-slot {
@@ -553,5 +571,9 @@ form {
 
     .modal-content {
         width: 90%;
+    }
+
+    .btn.btn-primary {
+        margin-top: 15px;
     }
 }

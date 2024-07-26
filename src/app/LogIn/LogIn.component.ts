@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -9,33 +9,22 @@ import { AuthService } from '../services/auth.service';
     styleUrls: ['./LogIn.component.css']
 })
 export class LogInComponent {
+    constructor(private authService: AuthService, private router: Router) { }
 
-    constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }
-
-    onSubmit(form: any): void {
-        const loginData = {
-            email: form.email,
-            password: form.password
-        };
-
-        const loginUrl = 'http://app.sportify-al.com/public/login';
-
-        const headers = new HttpHeaders({
-            'Content-Type': 'application/json'
+    onSubmit(form: NgForm) {
+        if (form.invalid) {
+            return;
+        }
+        const credentials = form.value;
+        this.authService.login(credentials).subscribe({
+            next: () => {
+                alert('Login successful');
+                this.router.navigate(['/dashboard']);
+            },
+            error: (error) => {
+                console.error(error);
+                alert('Login failed: Invalid credentials or server error');
+            }
         });
-
-        this.http.post<any>(loginUrl, loginData, { headers })
-            .subscribe({
-                next: response => {
-                    console.log('Login successful:', response);
-                    if (response.token) {
-                        this.authService.login(response.token);
-                        this.router.navigate(['/dashboard']);
-                    }
-                },
-                error: error => {
-                    console.error('Error logging in:', error);
-                }
-            });
     }
 }

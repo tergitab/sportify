@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
+import { AuthService } from '../services/auth.service';
 
 interface Event {
     name: string;
@@ -16,7 +17,7 @@ interface Event {
     templateUrl: './Administration.component.html',
     styleUrls: ['./Administration.component.css']
 })
-export class AdministrationComponent {
+export class AdministrationComponent implements OnInit {
     events: Event[] = [];
     start: Date;
     end: Date;
@@ -25,8 +26,9 @@ export class AdministrationComponent {
     selectedEvents: Event[] = [];
     selectedSlot: string | null = null;
     selectedSlotDetails: Event | null = null;
+    currentUser: any;
 
-    constructor() {
+    constructor(private authService: AuthService) {
         this.start = new Date();
         this.end = new Date();
         this.events = [
@@ -37,6 +39,10 @@ export class AdministrationComponent {
             { name: 'Event 5', date: new Date('2024-07-25'), startTime: '10:00', endTime: '12:00', summary: 'Event 5 Summary', location: 'test', sport: 'Futboll' }
         ];
         this.filterEvents();
+    }
+
+    ngOnInit(): void {
+        console.log('Logged in user information:', this.currentUser);
     }
 
     filterEvents() {
@@ -127,5 +133,13 @@ export class AdministrationComponent {
             return eventDates.includes(date.toDateString()) ? 'event-date' : '';
         }
         return '';
+    }
+
+    logOut() {
+        this.authService.logout();
+    }
+
+    get isLoggedIn(): boolean {
+        return this.authService.isLoggedIn();
     }
 }
