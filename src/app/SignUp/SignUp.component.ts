@@ -48,11 +48,12 @@ export class SignUpComponent implements OnInit {
 
         this.authService.login(credentials).subscribe({
             next: () => {
+                alert('Login successful');
                 this.router.navigate(['/dashboard']);
             },
-            error: error => {
-                console.error('Error logging in:', error);
-                window.alert('Invalid email or password. Please try again.');
+            error: (error) => {
+                console.error(error);
+                alert('Login failed: Invalid credentials or server error');
             }
         });
     }
