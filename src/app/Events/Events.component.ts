@@ -10,7 +10,8 @@ interface Event {
     location: string;
     sport: string;
     summary: string;
-    userId: string; // Added userId to associate event with a user
+    email: string;
+    userId: string;
 }
 
 @Component({
@@ -51,7 +52,8 @@ export class EventsComponent implements AfterViewInit {
                 location: 'Stadium A',
                 sport: 'Futboll',
                 summary: 'The best football teams compete for the championship.',
-                userId: '123' // Example userId
+                email: 'example@gmail.com',
+                userId: '123'
             },
             {
                 id: '2',
@@ -62,6 +64,7 @@ export class EventsComponent implements AfterViewInit {
                 location: 'Arena B',
                 sport: 'Basketboll',
                 summary: 'Top basketball teams from across the country.',
+                email: 'example@gmail.com',
                 userId: '124' // Another userId
             },
             {
@@ -73,6 +76,7 @@ export class EventsComponent implements AfterViewInit {
                 location: 'Court C',
                 sport: 'Tenis',
                 summary: 'A thrilling tennis tournament featuring top players.',
+                email: 'example@gmail.com',
                 userId: '123' // Example userId
             }
         ];
@@ -111,6 +115,8 @@ export class EventsComponent implements AfterViewInit {
             const location = (document.getElementById('event-location') as HTMLInputElement).value;
             const sport = (document.getElementById('event-sport') as HTMLSelectElement).value;
             const summary = (document.getElementById('event-summary') as HTMLTextAreaElement).value;
+            const email = (document.getElementById('event-summary') as HTMLTextAreaElement).value;
+
 
             const newEvent: Event = {
                 id: Date.now().toString(),
@@ -121,6 +127,7 @@ export class EventsComponent implements AfterViewInit {
                 location,
                 sport,
                 summary,
+                email,
                 userId: this.userId ? this.userId : '0'
             };
             this.allEvents.push(newEvent);
