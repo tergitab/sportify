@@ -225,6 +225,107 @@ body,
     color: white;
 }
 
+.fields-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.fields-subtitle {
+    font-weight: 600;
+    font-size: 25px;
+    color: #F56D44;
+    margin: 40px 0px -35px 0px;
+}
+
+.fields-title {
+    font-weight: 900;
+    font-size: 60px;
+    color: black;
+}
+
+.fields-description {
+    font-size: 20px;
+    width: 800px;
+    margin: 0 auto;
+    margin-top: -10px;
+    margin-bottom: 50px;
+}
+
+.fields-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.field-item {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.field-photo {
+    width: 100%;
+    height: 200px;
+    /* Set a fixed height for the image container */
+    overflow: hidden;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.field-photo img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    /* Ensure the image doesn't exceed the container's height */
+    object-fit: cover;
+    /* Cover the entire container while maintaining aspect ratio */
+    border-radius: 10px;
+}
+
+.field-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.field-location {
+    font-size: 1em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.field-description {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.field-item .btn-primary {
+    background-color: #D85E4B;
+    color: #fff;
+    padding: 10px 17px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.back-button {
+    color: #D85E4B;
+    padding: 5px 15px;
+    border: none;
+    cursor: pointer;
+    float: left;
+    margin: 15px 5px 0px 5px;
+}
+
 /* Media Queries */
 @media (max-width: 1200px) {
     .nav-social {
@@ -276,6 +377,15 @@ body,
 
     .event-title {
         font-size: 1rem;
+    }
+
+    .fields-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .field-item {
+        width: 80%;
     }
 }
 
@@ -336,6 +446,27 @@ body,
 
     .time-slot {
         padding: 8px;
+    }
+
+    .fields-section {
+        padding: 0 20px;
+    }
+
+    .fields-description {
+        font-size: 18px;
+        width: 100%;
+    }
+
+    .fields-subtitle {
+        font-size: 22px;
+    }
+
+    .fields-title {
+        font-size: 50px;
+    }
+
+    .field-item {
+        width: 90%;
     }
 }
 
@@ -405,4 +536,22 @@ body,
     .time-slot {
         padding: 5px;
     }
+
+    .fields-subtitle {
+        font-size: 18px;
+    }
+
+    .fields-title {
+        font-size: 30px;
+    }
+
+    .fields-description {
+        font-size: 14px;
+    }
+
+    .field-item {
+        width: 100%;
+    }
+
+
 }

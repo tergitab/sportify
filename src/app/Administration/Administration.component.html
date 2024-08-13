@@ -97,3 +97,65 @@
         </div>
     </div>
 </div>
+
+<div class="fields-section" *ngIf="!selectedFieldId">
+    <p class="fields-subtitle">Fushat</p>
+    <p class="fields-title">Lista e Fushave të Disponueshme</p>
+    <p class="fields-description">Zgjidhni një nga fushat tona dhe rezervoni menjëherë për të realizuar aktivitetet
+        tuaja sportive.</p>
+    <div class="fields-row">
+        <div *ngFor="let field of fields" class="field-item">
+            <div class="field-photo">
+                <img [src]="field.photoUrl" alt="{{ field.name }}">
+            </div>
+            <div class="field-content">
+                <div class="field-title">{{ field.name }}</div>
+                <div class="field-location"><strong>Adresa:</strong> {{ field.location }}</div>
+                <div class="field-description">{{ field.description }}</div>
+                <button class="btn btn-primary" (click)="toggleCalendar(field.id)">Rezervo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="selectedFieldId" class="calendar-section">
+    <div class="fields-section">
+        <p class="fields-subtitle">Fushat</p>
+        <h1 style="margin-top: 50px;">Rezervoni Orarin për {{ selectedFieldName }}</h1>
+    </div>
+    <div>
+        <button class="back-button" style="float: inline-start ;" (click)="goBack()">Kthehu</button>
+    </div>
+    <div class="calendar-events-container">
+        <div class="column">
+            <div class="calendar-container">
+                <mat-calendar [(selected)]="selectedDate" (selectedChange)="onDateSelected($event)"
+                    [dateClass]="dateClass"></mat-calendar>
+            </div>
+        </div>
+        <div class="column">
+            <div class="events-section" *ngIf="selectedDate !== null">
+                <h2>Intervalet e Rezervuara për {{ selectedDate | date }}</h2>
+                <div class="timetable">
+                    <div *ngFor="let slot of generateTimeSlots('08:00', '18:00', 60)" class="time-slot"
+                        [class.booked]="isSlotBooked(slot.start)" (click)="selectSlot(slot.start)">
+                        {{ slot.start }} - {{ slot.end }}
+                        <div *ngIf="selectedSlot === slot.start" class="slot-details">
+                            <div *ngIf="isSlotBooked(slot.start)">
+                                <p><strong>Event:</strong> {{ selectedSlotDetails?.name }}</p>
+                                <p><strong>Koha:</strong> {{ selectedSlotDetails?.startTime }} - {{
+                                    selectedSlotDetails?.endTime }}</p>
+                                <p><strong>Adresa:</strong> {{ selectedSlotDetails?.location }}</p>
+                                <p><strong>Lloji Sportit:</strong> {{ selectedSlotDetails?.sport }}</p>
+                                <p><strong>Përmbledhje:</strong> {{ selectedSlotDetails?.summary }}</p>
+                                <button (click)="cancelBooking(slot.start)">Anulo Rezervimin</button>
+                            </div>
+                            <div *ngIf="!isSlotBooked(slot.start)">
+                                <button (click)="bookSlot(slot.start)">Rezervo Orarin</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

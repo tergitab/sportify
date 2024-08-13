@@ -19,13 +19,12 @@ export class DashboardComponent implements OnInit {
 
     isAuthenticated(): boolean {
         const token = localStorage.getItem('authToken');
-        console.log('Token in localStorage:', token);
         return !!token;
     }
 
     logOut() {
         localStorage.removeItem('authToken');
-        this.router.navigate(['/login']);
+        this.router.navigate(['/dashboard']);
     }
 
     toggleNavbar() {

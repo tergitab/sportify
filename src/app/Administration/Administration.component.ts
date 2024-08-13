@@ -10,6 +10,15 @@ interface Event {
     location: string;
     sport: string;
     summary: string;
+
+}
+
+interface Field {
+    id: string;
+    name: string;
+    location: string;
+    description: string;
+    photoUrl: string;
 }
 
 @Component({
@@ -19,6 +28,7 @@ interface Event {
 })
 export class AdministrationComponent implements OnInit {
     events: Event[] = [];
+    fields: Field[] = [];
     start: Date;
     end: Date;
     selectedDate: Date | null = null;
@@ -27,6 +37,8 @@ export class AdministrationComponent implements OnInit {
     selectedSlot: string | null = null;
     selectedSlotDetails: Event | null = null;
     currentUser: any;
+    selectedFieldId: string | null = null;
+    selectedFieldName: string = ''; // To hold the name of the selected field
 
     constructor(private authService: AuthService) {
         this.start = new Date();
@@ -38,6 +50,11 @@ export class AdministrationComponent implements OnInit {
             { name: 'Event 4', date: new Date('2024-07-20'), startTime: '13:00', endTime: '15:00', summary: 'Event 4 Summary', location: 'test', sport: 'Futboll' },
             { name: 'Event 5', date: new Date('2024-07-25'), startTime: '10:00', endTime: '12:00', summary: 'Event 5 Summary', location: 'test', sport: 'Futboll' }
         ];
+        this.fields = [
+            { id: '1', name: 'Fusha 1', location: 'Tirana', description: 'A high-quality football field.', photoUrl: 'assets/images/Football-field.jpg' },
+            { id: '2', name: 'Fusha 2', location: 'Durres', description: 'A large field for various sports.', photoUrl: 'assets/images/sports-field.webp' },
+            { id: '3', name: 'Fusha 3', location: 'Shkodra', description: 'A state-of-the-art sports complex.', photoUrl: 'assets/images/sports-complex.jpeg' }
+        ];
         this.filterEvents();
     }
 
@@ -45,9 +62,19 @@ export class AdministrationComponent implements OnInit {
         console.log('Logged in user information:', this.currentUser);
     }
 
+    toggleCalendar(fieldId: string): void {
+        if (this.selectedFieldId === fieldId) {
+            this.selectedFieldId = null;
+            this.selectedFieldName = '';
+        } else {
+            this.selectedFieldId = fieldId;
+            this.selectedFieldName = this.fields.find(field => field.id === fieldId)?.name || '';
+        }
+    }
+
     filterEvents() {
         this.selectedEvents = [];
-        this.selectedDate = null; // Reset the selected date when filtering
+        this.selectedDate = null;
         if (this.start && this.end) {
             this.filteredEvents = this.events.filter(event => {
                 const eventDate = new Date(event.date);
@@ -133,6 +160,11 @@ export class AdministrationComponent implements OnInit {
             return eventDates.includes(date.toDateString()) ? 'event-date' : '';
         }
         return '';
+    }
+
+    goBack(): void {
+        this.selectedFieldId = null;
+        this.selectedFieldName = '';
     }
 
     logOut() {

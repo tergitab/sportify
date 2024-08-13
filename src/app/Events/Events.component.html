@@ -85,7 +85,6 @@
             <div class="add-event-container hidden">
                 <h2>Shto Event</h2>
                 <form id="add-event-form">
-
                     <label for="event-name">Emri eventit:</label>
                     <input type="text" id="event-name" required />
 
@@ -103,7 +102,7 @@
 
                     <label for="event-sport">Lloji Sportit:</label>
                     <select id="event-sport" required>
-                        <option value="">--opsione-- </option>
+                        <option value="">--opsione--</option>
                         <option value="Futboll">Futboll</option>
                         <option value="Basketboll">Basketboll</option>
                         <option value="Tenis">Tenis</option>
@@ -131,7 +130,8 @@
                         <div class="arlo-time"><strong>Ora:</strong> {{ event.startTime }} - {{ event.endTime }}</div>
                     </div>
                     <div class="arlo-action">
-                        <button class="btn btn-primary">Apliko</button>
+                        <button *ngIf="event.userId === userId" class="btn btn-danger"
+                            (click)="deleteEvent(event.id)">Fshij</button>
                     </div>
                 </div>
             </div>

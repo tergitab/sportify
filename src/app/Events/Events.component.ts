@@ -1,26 +1,31 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';// Import your AuthService
 
 interface Event {
+    id: string;
     name: string;
     date: string;
-    startTime: string; // Start time of the event
-    endTime: string; // End time of the event
+    startTime: string;
+    endTime: string;
     location: string;
     sport: string;
     summary: string;
+    userId: string; // Added userId to associate event with a user
 }
 
 @Component({
     selector: 'app-events',
-    templateUrl: './Events.component.html',
-    styleUrls: ['./Events.component.scss']
+    templateUrl: './events.component.html',
+    styleUrls: ['./events.component.scss']
 })
 export class EventsComponent implements AfterViewInit {
     events: Event[] = [];
     allEvents: Event[] = [];
-    newEvents: Event[] = [];
-    userName: string = 'John Doe'; // Example user name
+    userEvents: Event[] = [];
+    userId: string | null = null;
     showingMyEvents: boolean = false;
+
+    constructor(private authService: AuthService) { }
 
     ngAfterViewInit(): void {
         this.loadEvents();
@@ -28,41 +33,52 @@ export class EventsComponent implements AfterViewInit {
         this.setupAddEventForm();
         this.setupToggleAddEventForm();
         this.setupMyEventsButton();
+
+        // Get logged-in user's ID
+        const decodedToken = this.authService.getDecodedToken();
+        this.userId = decodedToken ? decodedToken.userId : null;
     }
 
     loadEvents(): void {
-        // Initial set of events
+        // Mocked events for demonstration
         this.allEvents = [
             {
-                name: 'Football Championship - John Doe',
+                id: '1',
+                name: 'Football Championship',
                 date: '2024-06-20',
                 startTime: '10:00',
                 endTime: '12:00',
                 location: 'Stadium A',
                 sport: 'Futboll',
-                summary: 'The best football teams compete for the championship.'
+                summary: 'The best football teams compete for the championship.',
+                userId: '123' // Example userId
             },
             {
+                id: '2',
                 name: 'Basketball Tournament',
                 date: '2024-07-05',
                 startTime: '13:00',
                 endTime: '15:00',
                 location: 'Arena B',
                 sport: 'Basketboll',
-                summary: 'Top basketball teams from across the country.'
+                summary: 'Top basketball teams from across the country.',
+                userId: '124' // Another userId
             },
             {
+                id: '3',
                 name: 'Tennis Open',
                 date: '2024-08-15',
                 startTime: '09:00',
                 endTime: '11:00',
                 location: 'Court C',
                 sport: 'Tenis',
-                summary: 'A thrilling tennis tournament featuring top players.'
+                summary: 'A thrilling tennis tournament featuring top players.',
+                userId: '123' // Example userId
             }
         ];
 
-        this.events = [...this.allEvents]; // Copy the initial events to the display array
+        this.userEvents = this.allEvents.filter(event => event.userId === this.userId);
+        this.events = [...this.allEvents]; // Initially display all events
     }
 
     setupFilters(): void {
@@ -96,33 +112,34 @@ export class EventsComponent implements AfterViewInit {
             const sport = (document.getElementById('event-sport') as HTMLSelectElement).value;
             const summary = (document.getElementById('event-summary') as HTMLTextAreaElement).value;
 
-            const newEvent: Event = { name, date, startTime, endTime, location, sport, summary };
+            const newEvent: Event = {
+                id: Date.now().toString(),
+                name,
+                date,
+                startTime,
+                endTime,
+                location,
+                sport,
+                summary,
+                userId: this.userId ? this.userId : '0'
+            };
             this.allEvents.push(newEvent);
             this.events.push(newEvent);
-            this.newEvents.push(newEvent);
+            this.userEvents.push(newEvent);
 
             // Reset form
             addEventForm.reset();
-            this.toggleAddEventForm();
+            this.setupToggleAddEventForm();
         });
     }
 
     setupToggleAddEventForm(): void {
         const showAddEventFormButton = document.getElementById('show-add-event-form')!;
-        const closeAddEventFormButton = document.getElementById('close-add-event-form')!;
+        const addEventContainer = document.querySelector('.add-event-container') as HTMLElement;
 
         showAddEventFormButton.addEventListener('click', () => {
-            this.toggleAddEventForm();
+            addEventContainer.classList.toggle('hidden');
         });
-
-        closeAddEventFormButton.addEventListener('click', () => {
-            this.toggleAddEventForm();
-        });
-    }
-
-    toggleAddEventForm(): void {
-        const addEventContainer = document.querySelector('.add-event-container') as HTMLElement;
-        addEventContainer.classList.toggle('hidden');
     }
 
     setupMyEventsButton(): void {
@@ -138,9 +155,17 @@ export class EventsComponent implements AfterViewInit {
             this.events = [...this.allEvents];
             myEventsButton.textContent = 'Eventet e mia';
         } else {
-            this.events = [...this.newEvents];
-            myEventsButton.textContent = 'Gjithe Eventet';
+            this.events = [...this.userEvents];
+            myEventsButton.textContent = 'Gjithë Eventet';
         }
         this.showingMyEvents = !this.showingMyEvents;
+    }
+
+    deleteEvent(eventId: string): void {
+        if (confirm('A jeni i sigurt që dëshironi të fshini këtë event?')) {
+            this.allEvents = this.allEvents.filter(event => event.id !== eventId);
+            this.userEvents = this.userEvents.filter(event => event.id !== eventId);
+            this.events = this.showingMyEvents ? this.userEvents : this.allEvents;
+        }
     }
 }

@@ -75,17 +75,14 @@
 <div *ngIf="showFindCoach" class="find-coach">
     <h2>Lista e trajnerëve</h2>
     <div id="upcoming-events">
-        <div *ngFor="let announcement of announcements" class="arlo-event-listitem">
-            <div class="arlo-date arlo-font-special">
-                <div class="arlo-start-day">{{ announcement.date | date: 'd' }}</div>
-                <div class="arlo-start-month-year">{{ announcement.date | date: 'MMM yyyy' }}</div>
-            </div>
+        <div *ngFor="let trainer of trainers" class="arlo-event-listitem">
             <div class="arlo-event-content">
-                <div class="arlo-title">{{ announcement.name }}</div>
-                <div class="arlo-summary">{{ announcement.contactNumber }}</div>
+                <div class="arlo-title">{{ trainer.name }}</div>
+                <div class="arlo-summary">{{ trainer.contactNumber }}</div>
+                <div class="arlo-summary">{{ trainer.location }}</div>
             </div>
             <div class="arlo-action">
-                <button class="btn-contact" (click)="showContactInfo(announcement)">Kontakto</button>
+                <button class="btn-contact" (click)="showContactInfo(trainer)">Kontakto</button>
             </div>
         </div>
     </div>

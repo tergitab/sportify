@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../environment/environment';
 import { jwtDecode } from 'jwt-decode';
@@ -17,10 +17,16 @@ export class AuthService {
     constructor(private http: HttpClient, private cookieService: CookieService, private router: Router) { }
 
     login(credentials: { email: string, password: string }): Observable<any> {
-        console.log('Sending login request with credentials:', credentials); // Debug log
-        return this.http.post(this.loginUrl, credentials).pipe(
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            }),
+            withCredentials: true
+        };
+
+        return this.http.post(this.loginUrl, credentials, httpOptions).pipe(
             tap((response: any) => {
-                console.log('Server response:', response); // Debug log
+                console.log('Response received:', response);
                 if (response && response.token) {
                     const expirationDate = new Date();
                     expirationDate.setDate(expirationDate.getDate() + 1);
@@ -32,8 +38,20 @@ export class AuthService {
                     });
 
                     this.decodedToken = jwtDecode(response.token);
+                    console.log('Decoded token:', this.decodedToken);
                 } else {
+                    console.error('No token found in response');
                     throw new Error('Invalid credentials');
+                }
+            }),
+            catchError((error) => {
+                console.error('Error during login request:', error);
+                if (error.status === 401) {
+                    return throwError('Invalid credentials. Please try again.');
+                } else if (error.status === 500) {
+                    return throwError('Server error. Please try again later.');
+                } else {
+                    return throwError('Unexpected error. Please try again.');
                 }
             })
         );
@@ -61,8 +79,11 @@ export class AuthService {
     }
 
     private isTokenExpired(): boolean {
-        const expiry = this.decodedToken.exp;
-        return Math.floor(new Date().getTime() / 1000) >= expiry;
+        const expiry = this.decodedToken?.exp;
+        if (expiry) {
+            return Math.floor(new Date().getTime() / 1000) >= expiry;
+        }
+        return false;
     }
 
     logout(): void {
