@@ -15,8 +15,8 @@ interface Event {
 
 @Component({
     selector: 'app-events',
-    templateUrl: './events.component.html',
-    styleUrls: ['./events.component.scss']
+    templateUrl: './Events.component.html',
+    styleUrls: ['./Events.component.scss']
 })
 export class EventsComponent implements AfterViewInit {
     events: Event[] = [];
