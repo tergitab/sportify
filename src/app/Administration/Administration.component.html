@@ -25,7 +25,80 @@
     </div>
 </nav>
 
-<div class="filters-container">
+
+
+<!--ADMINISTRATOR INTERFACE-->
+
+<div class="buttons">
+    <button id="update-button" (click)="toggleUpdatePage()">Përditëso</button>
+    <button id="update-button" (click)="toggleAddField()">Shto fushë</button>
+</div>
+
+<div *ngIf="showFieldsList" class="fields-section">
+    <button class="back-button" style="float: inline-start ;" (click)="closeAddFieldForm()">Kthehu</button>
+    <p class="fields-subtitle">Fushat</p>
+    <p class="fields-title">Lista e Fushave të Disponueshme</p>
+    <p class="fields-description">Zgjidhni një nga fushat tona dhe rezervoni menjëherë për të realizuar aktivitetet
+        tuaja sportive.</p>
+    <div class="fields-row">
+        <div *ngFor="let field of fields" class="field-item">
+            <div class="field-photo">
+                <img [src]="field.photoUrl" alt="{{ field.name }}">
+            </div>
+            <div class="field-content">
+                <!-- Editable fields -->
+                <div class="field-title">
+                    <input *ngIf="isEditable" [(ngModel)]="field.name" />
+                    <span *ngIf="!isEditable">{{ field.name }}</span>
+                </div>
+                <div class="field-location">
+                    <strong>Adresa:</strong>
+                    <input *ngIf="isEditable" [(ngModel)]="field.location" />
+                    <span *ngIf="!isEditable">{{ field.location }}</span>
+                </div>
+                <div class="field-description">
+                    <input *ngIf="isEditable" [(ngModel)]="field.description" />
+                    <span *ngIf="!isEditable">{{ field.description }}</span>
+                </div>
+                <button class="btn btn-primary" (click)="isEditable = !isEditable">
+                    {{ isEditable ? 'Ruaj Ndryshimet' : 'Përditëso' }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Form to add a new field -->
+<div *ngIf="showAddFieldForm" class="add-field-form">
+    <form (ngSubmit)="addNewField()">
+        <h2>Shto Fushë të Re</h2>
+        <div>
+            <label for="name">Emri i Fushës</label>
+            <input type="text" id="name" [(ngModel)]="newField.name" name="name" required>
+        </div>
+        <div>
+            <label for="location">Adresa</label>
+            <input type="text" id="location" [(ngModel)]="newField.location" name="location" required>
+        </div>
+        <div>
+            <label for="description">Përshkrimi</label>
+            <textarea id="description" [(ngModel)]="newField.description" name="description"></textarea>
+        </div>
+        <div>
+
+            <label for="field-photo">Foto:</label>
+            <input id="field-photo" type="file" (change)="onFileChange($event)" accept="image/*" />
+            <img *ngIf="photoPreview" [src]="photoPreview" alt="Preview" class="photo-preview" />
+
+        </div>
+        <button class="btn" type="submit">Shto Fushë</button>
+        <button class="close-button" (click)="closeAddFieldForm()">Anullo</button>
+    </form>
+</div>
+
+<!-- Calendar view -->
+<div *ngIf="!showFieldsList && !showAddFieldForm" class="filters-container">
+
     <div id="filters">
         <mat-form-field appearance="fill" class="small-picker">
             <mat-label>Data Fillimi</mat-label>
@@ -42,10 +115,12 @@
         </mat-form-field>
 
         <button id="filter-button" (click)="filterEvents()">Filtro</button>
+        <br>
+
     </div>
 </div>
 
-<div class="calendar-events-container">
+<div *ngIf="!showFieldsList && !showAddFieldForm" class="calendar-events-container">
     <div class="column">
         <div class="calendar-container">
             <mat-calendar [(selected)]="selectedDate" (selectedChange)="onDateSelected($event)"
@@ -97,6 +172,13 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+<!--USER INTERFACE-->
 
 <div class="fields-section" *ngIf="!selectedFieldId">
     <p class="fields-subtitle">Fushat</p>

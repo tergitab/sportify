@@ -110,8 +110,11 @@
 
                     <label for="event-summary">Lajmërim:</label>
                     <textarea id="event-summary" required></textarea>
-                    <br />
 
+                    <label for="event-contact">Kontakti:</label>
+                    <input type="email" id="event-contact" required />
+
+                    <br />
                     <button type="submit" class="btn">Shto Eventin</button>
                 </form>
             </div>
@@ -128,11 +131,13 @@
                         <div class="arlo-location"><strong>Adresa:</strong> {{ event.location }}</div>
                         <div class="arlo-sport"><strong>Lloji Sportit:</strong> {{ event.sport }}</div>
                         <div class="arlo-time"><strong>Ora:</strong> {{ event.startTime }} - {{ event.endTime }}</div>
-                        <div class="arlo-timr"><strong>Kontakti</strong> {{event.email}}</div>
+                        <div class="arlo-contact"><strong>Kontakti:</strong> {{ event.contact }}</div>
                     </div>
                     <div class="arlo-action">
                         <button *ngIf="event.userId === userId" class="btn btn-danger"
                             (click)="deleteEvent(event.id)">Fshij</button>
+                        <button *ngIf="event.userId === userId" class="btn btn-secondary"
+                            (click)="editEvent(event.id)">Ndrysho</button>
                     </div>
                 </div>
             </div>

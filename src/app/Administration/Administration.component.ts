@@ -10,7 +10,6 @@ interface Event {
     location: string;
     sport: string;
     summary: string;
-
 }
 
 interface Field {
@@ -27,8 +26,10 @@ interface Field {
     styleUrls: ['./Administration.component.css']
 })
 export class AdministrationComponent implements OnInit {
+
     events: Event[] = [];
     fields: Field[] = [];
+    newField = { name: '', location: '', description: '', photoUrl: '' };
     start: Date;
     end: Date;
     selectedDate: Date | null = null;
@@ -38,7 +39,11 @@ export class AdministrationComponent implements OnInit {
     selectedSlotDetails: Event | null = null;
     currentUser: any;
     selectedFieldId: string | null = null;
-    selectedFieldName: string = ''; // To hold the name of the selected field
+    selectedFieldName: string = '';
+    showFieldsList: boolean = false;
+    isEditable: boolean = false;
+    showAddFieldForm: boolean = false;
+    photoPreview: string | ArrayBuffer | null = null;
 
     constructor(private authService: AuthService) {
         this.start = new Date();
@@ -60,6 +65,51 @@ export class AdministrationComponent implements OnInit {
 
     ngOnInit(): void {
         console.log('Logged in user information:', this.currentUser);
+    }
+
+    toggleUpdatePage(): void {
+        this.showFieldsList = true;
+    }
+
+    toggleEditMode(): void {
+        this.isEditable = !this.isEditable;
+    }
+
+    toggleAddField(): void {
+        this.showAddFieldForm = true;
+        this.showFieldsList = false;
+    }
+
+    addNewField(): void {
+        // Add the new field to the fields array
+        this.fields.push({
+            ...this.newField,
+            id: ''
+        });
+
+        // Clear the form
+        this.newField = { name: '', location: '', description: '', photoUrl: '' };
+        this.photoPreview = null; // Clear the photo preview
+
+        // Hide the form
+        this.closeAddFieldForm();
+    }
+
+    closeAddFieldForm(): void {
+        this.showAddFieldForm = false;
+        this.showFieldsList = false;
+    }
+
+    onFileChange(event: any) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                this.photoPreview = reader.result;
+                this.newField.photoUrl = reader.result as string;
+            };
+            reader.readAsDataURL(file);
+        }
     }
 
     toggleCalendar(fieldId: string): void {

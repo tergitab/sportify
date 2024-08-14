@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';// Import your AuthService
+import { AuthService } from '../services/auth.service'; // Import your AuthService
 
 interface Event {
     id: string;
@@ -12,6 +12,7 @@ interface Event {
     summary: string;
     email: string;
     userId: string;
+    contact: string; // New contact field
 }
 
 @Component({
@@ -25,6 +26,7 @@ export class EventsComponent implements AfterViewInit {
     userEvents: Event[] = [];
     userId: string | null = null;
     showingMyEvents: boolean = false;
+    editingEventId: string | null = null;
 
     constructor(private authService: AuthService) { }
 
@@ -53,7 +55,8 @@ export class EventsComponent implements AfterViewInit {
                 sport: 'Futboll',
                 summary: 'The best football teams compete for the championship.',
                 email: 'example@gmail.com',
-                userId: '123'
+                userId: '123',
+                contact: 'contact@example.com'
             },
             {
                 id: '2',
@@ -65,7 +68,8 @@ export class EventsComponent implements AfterViewInit {
                 sport: 'Basketboll',
                 summary: 'Top basketball teams from across the country.',
                 email: 'example@gmail.com',
-                userId: '124' // Another userId
+                userId: '124', // Another userId
+                contact: 'contact@example.com'
             },
             {
                 id: '3',
@@ -77,7 +81,8 @@ export class EventsComponent implements AfterViewInit {
                 sport: 'Tenis',
                 summary: 'A thrilling tennis tournament featuring top players.',
                 email: 'example@gmail.com',
-                userId: '123' // Example userId
+                userId: '123', // Example userId
+                contact: 'contact@example.com'
             }
         ];
 
@@ -115,28 +120,44 @@ export class EventsComponent implements AfterViewInit {
             const location = (document.getElementById('event-location') as HTMLInputElement).value;
             const sport = (document.getElementById('event-sport') as HTMLSelectElement).value;
             const summary = (document.getElementById('event-summary') as HTMLTextAreaElement).value;
-            const email = (document.getElementById('event-summary') as HTMLTextAreaElement).value;
+            const contact = (document.getElementById('event-contact') as HTMLInputElement).value;
 
+            if (this.editingEventId) {
+                const eventToEdit = this.allEvents.find(ev => ev.id === this.editingEventId);
+                if (eventToEdit) {
+                    eventToEdit.name = name;
+                    eventToEdit.date = date;
+                    eventToEdit.startTime = startTime;
+                    eventToEdit.endTime = endTime;
+                    eventToEdit.location = location;
+                    eventToEdit.sport = sport;
+                    eventToEdit.summary = summary;
+                    eventToEdit.contact = contact;
+                }
+                this.editingEventId = null;
+            } else {
+                const newEvent: Event = {
+                    id: Date.now().toString(),
+                    name,
+                    date,
+                    startTime,
+                    endTime,
+                    location,
+                    sport,
+                    summary,
+                    email: 'example@gmail.com', // Or fetch the user's email dynamically
+                    userId: this.userId ? this.userId : '0',
+                    contact // New contact field
+                };
 
-            const newEvent: Event = {
-                id: Date.now().toString(),
-                name,
-                date,
-                startTime,
-                endTime,
-                location,
-                sport,
-                summary,
-                email,
-                userId: this.userId ? this.userId : '0'
-            };
-            this.allEvents.push(newEvent);
-            this.events.push(newEvent);
-            this.userEvents.push(newEvent);
+                this.allEvents.push(newEvent);
+                this.events.push(newEvent);
+                this.userEvents.push(newEvent);
+            }
 
-            // Reset form
+            // Reset form and close it
             addEventForm.reset();
-            this.setupToggleAddEventForm();
+            this.toggleAddEventForm();
         });
     }
 
@@ -147,6 +168,11 @@ export class EventsComponent implements AfterViewInit {
         showAddEventFormButton.addEventListener('click', () => {
             addEventContainer.classList.toggle('hidden');
         });
+    }
+
+    toggleAddEventForm(): void {
+        const addEventContainer = document.querySelector('.add-event-container') as HTMLElement;
+        addEventContainer.classList.add('hidden'); // Hide the form after submission
     }
 
     setupMyEventsButton(): void {
@@ -173,6 +199,25 @@ export class EventsComponent implements AfterViewInit {
             this.allEvents = this.allEvents.filter(event => event.id !== eventId);
             this.userEvents = this.userEvents.filter(event => event.id !== eventId);
             this.events = this.showingMyEvents ? this.userEvents : this.allEvents;
+        }
+    }
+
+    editEvent(eventId: string): void {
+        const eventToEdit = this.allEvents.find(event => event.id === eventId);
+        if (eventToEdit) {
+            this.editingEventId = eventId;
+
+            (document.getElementById('event-name') as HTMLInputElement).value = eventToEdit.name;
+            (document.getElementById('event-date') as HTMLInputElement).value = eventToEdit.date;
+            (document.getElementById('event-start-time') as HTMLInputElement).value = eventToEdit.startTime;
+            (document.getElementById('event-end-time') as HTMLInputElement).value = eventToEdit.endTime;
+            (document.getElementById('event-location') as HTMLInputElement).value = eventToEdit.location;
+            (document.getElementById('event-sport') as HTMLSelectElement).value = eventToEdit.sport;
+            (document.getElementById('event-summary') as HTMLTextAreaElement).value = eventToEdit.summary;
+            (document.getElementById('event-contact') as HTMLInputElement).value = eventToEdit.contact;
+
+            // Show the form for editing
+            this.toggleAddEventForm();
         }
     }
 }
