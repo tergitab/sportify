@@ -7,6 +7,7 @@ import { EventsComponent } from './Events/Events.component';
 import { BlogComponent } from './Blog/Blog.component';
 import { TrainersComponent } from './Trainers/Trainers.component';
 import { AdministrationComponent } from './Administration/Administration.component';
+import { ForgotPasswordComponent } from './ForgotPassword/ForgotPassword.component';
 
 const routes: Routes = [
     { path: '', component: DashboardComponent },
@@ -16,7 +17,9 @@ const routes: Routes = [
     { path: 'events', component: EventsComponent },
     { path: 'blog', component: BlogComponent },
     { path: 'trainers', component: TrainersComponent },
-    { path: 'administration', component: AdministrationComponent }
+    { path: 'administration', component: AdministrationComponent },
+    { path: 'forgotpassword', component: ForgotPasswordComponent }
+
 
 
 ];

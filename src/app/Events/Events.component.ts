@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { AuthService } from '../services/auth.service'; // Import your AuthService
+import { AuthService } from '../services/auth.service';
 
 interface Event {
     id: string;
@@ -12,7 +12,7 @@ interface Event {
     summary: string;
     email: string;
     userId: string;
-    contact: string; // New contact field
+    contact: string;
 }
 
 @Component({
@@ -68,7 +68,7 @@ export class EventsComponent implements AfterViewInit {
                 sport: 'Basketboll',
                 summary: 'Top basketball teams from across the country.',
                 email: 'example@gmail.com',
-                userId: '124', // Another userId
+                userId: '124',
                 contact: 'contact@example.com'
             },
             {
@@ -81,7 +81,7 @@ export class EventsComponent implements AfterViewInit {
                 sport: 'Tenis',
                 summary: 'A thrilling tennis tournament featuring top players.',
                 email: 'example@gmail.com',
-                userId: '123', // Example userId
+                userId: '123',
                 contact: 'contact@example.com'
             }
         ];
@@ -147,7 +147,7 @@ export class EventsComponent implements AfterViewInit {
                     summary,
                     email: 'example@gmail.com', // Or fetch the user's email dynamically
                     userId: this.userId ? this.userId : '0',
-                    contact // New contact field
+                    contact
                 };
 
                 this.allEvents.push(newEvent);

@@ -20,9 +20,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ForgotPasswordComponent } from './ForgotPassword/ForgotPassword.component';
+
 
 @NgModule({
-    declarations: [
+    declarations: [	
         AppComponent,
         DashboardComponent,
         SignUpComponent,
@@ -30,8 +32,9 @@ import { MatInputModule } from '@angular/material/input';
         EventsComponent,
         TrainersComponent,
         BlogComponent,
-        AdministrationComponent
-    ],
+        AdministrationComponent,
+      ForgotPasswordComponent
+   ],
     imports: [
         BrowserModule,
         HttpClientModule,

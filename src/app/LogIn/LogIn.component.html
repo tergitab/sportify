@@ -29,16 +29,20 @@
 
                                 <div class="mb-3">
                                     <div class="d-flex justify-content-center">
-                                        <a href="#" class="text-decoration-none">Kam harruar fjalëkalimin</a>
+                                        <a href="#" [routerLink]="['/forgotpassword']" class="text-decoration-none">Kam
+                                            harruar fjalëkalimin</a>
                                     </div>
                                 </div>
                                 <button type="submit"
                                     class="btn btn-outline-secondary login-btn w-100 mb-3">Hyni</button>
 
                             </form>
-                            <p class="text-center register-test mt-3" style="font-weight: 500;">Nuk keni një llogari? <a
-                                    [routerLink]="['/signup']" style="font-weight: 500;"
-                                    class="text-decoration-none">Regjistrohuni këtu</a></p>
+                            <p class="text-center mt-3" style="font-weight: 500;">Nuk keni një llogari? <a
+                                    [routerLink]="['/signup']" style="font-weight: 500;">Regjistrohuni këtu</a></p>
+                            <p class="text-center register-test mt-3" style="font-weight: 500; margin-top: -15px;">
+                                Kthehuni te <a href="#" [routerLink]="['/dashboard']" style="font-weight: 500;">Kreu</a>
+                            </p>
+
 
                         </div>
                     </div>

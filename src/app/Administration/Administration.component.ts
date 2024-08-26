@@ -89,7 +89,7 @@ export class AdministrationComponent implements OnInit {
 
         // Clear the form
         this.newField = { name: '', location: '', description: '', photoUrl: '' };
-        this.photoPreview = null; // Clear the photo preview
+        this.photoPreview = null;
 
         // Hide the form
         this.closeAddFieldForm();

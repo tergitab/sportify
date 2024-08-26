@@ -22,7 +22,7 @@ export class TrainersComponent implements OnInit {
     }
 
     getTrainers(): void {
-        const url = 'http://app.sportify-al.com/trainers'; // API URL
+        const url = 'http://app.sportify-al.com/trainers';
         this.http.get<any[]>(url).subscribe(
             (data) => {
                 this.trainers = data;

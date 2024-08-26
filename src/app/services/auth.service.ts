@@ -91,4 +91,15 @@ export class AuthService {
         this.decodedToken = null;
         this.router.navigate(['/login']);
     }
+
+    forgotPassword(email: string): Observable<any> { //duhet bere ne db
+        const url = `${environment.apiBaseUrl}/public/forgot-password`;
+        return this.http.post(url, { email }, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }).pipe(
+            tap(response => console.log('Password reset email sent:', response)),
+            catchError(error => {
+                console.error('Error sending password reset email:', error);
+                return throwError('Failed to send password reset email.');
+            })
+        );
+    }
 }
